@@ -166,7 +166,7 @@
 
       <!-- AMOUNT -->
       <label class="text-sm font-semibold text-gray-700 mb-3 block">3. Choose amount</label>
-      <div class="grid grid-cols-3 gap-3 mb-4">
+      <div id="amountGrid" class="grid grid-cols-3 gap-3 mb-4">
         <button data-amt="10"  class="amt-btn amount-btn border-2 border-gray-200 rounded-xl py-4 font-bold text-gray-700">$10</button>
         <button data-amt="25"  class="amt-btn amount-btn border-2 border-gray-200 rounded-xl py-4 font-bold text-gray-700">$25</button>
         <button data-amt="50"  class="amt-btn amount-btn active border-2 border-gray-200 rounded-xl py-4 font-bold text-gray-700">$50</button>
@@ -512,29 +512,55 @@
   document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // State
-  let state = { frequency: 'once', currency: 'USD', amount: 50, purpose: 'General' };
+  // ============ STATE ============
+  const state = { frequency: 'once', currency: 'USD', amount: 50, purpose: 'General' };
 
-  const symbols = { USD: '$', EUR: '€', GBP: '£', UGX: 'UGX ' };
-  const ugxRate = 3800; // 1 USD ≈ 3800 UGX
-  const baseAmts = { 10: 10, 25: 25, 50: 50, 100: 100, 250: 250, 500: 500 };
+  // Currency symbols and conversion rates (base USD)
+  const currencyConfig = {
+    USD: { symbol: '$',    rate: 1,    label: '$' },
+    EUR: { symbol: '€',    rate: 0.92, label: '€' },
+    GBP: { symbol: '£',    rate: 0.79, label: '£' },
+    UGX: { symbol: 'UGX ', rate: 3800, label: 'UGX ' },
+  };
 
-  // Impact map (USD)
+  // Base preset amounts in USD
+  const baseAmounts = [10, 25, 50, 100, 250, 500];
+
+  // Helper: format number with commas
+  const fmt = (n) => Math.round(n).toLocaleString();
+
+  // ============ IMPACT MAP (USD) ============
   const impacts = [
-    { max: 15,    icon: 'fa-bowl-food',    title: 'A week of meals',                 desc: 'Warm, nutritious food for one child for a full week.' },
-    { max: 35,    icon: 'fa-book',         title: 'School supplies for a term',      desc: 'Books, pens, uniform and a school bag for one child.' },
-    { max: 80,    icon: 'fa-stethoscope',  title: 'Medical care + checkup',          desc: 'Full health screening, treatment and vaccinations.' },
-    { max: 150,   icon: 'fa-graduation-cap', title: 'School fees for a year',        desc: 'Full tuition for one child for an entire academic year.' },
-    { max: 400,   icon: 'fa-house-chimney', title: 'Shelter for a month',            desc: 'Safe housing, bedding and care for a child in our home.' },
-    { max: Infinity, icon: 'fa-hand-holding-heart', title: 'Transforming lives',     desc: 'You are changing the future of multiple children. Thank you!' },
+    { max: 15,       icon: 'fa-bowl-food',          title: 'A week of meals',            desc: 'Warm, nutritious food for one child for a full week.' },
+    { max: 35,       icon: 'fa-book',               title: 'School supplies for a term', desc: 'Books, pens, uniform and a school bag for one child.' },
+    { max: 80,       icon: 'fa-stethoscope',        title: 'Medical care + checkup',     desc: 'Full health screening, treatment and vaccinations.' },
+    { max: 150,      icon: 'fa-graduation-cap',     title: 'School fees for a year',     desc: 'Full tuition for one child for an entire academic year.' },
+    { max: 400,      icon: 'fa-house-chimney',      title: 'Shelter for a month',        desc: 'Safe housing, bedding and care for a child in our home.' },
+    { max: Infinity, icon: 'fa-hand-holding-heart', title: 'Transforming lives',         desc: 'You are changing the future of multiple children. Thank you!' },
   ];
 
+  // ============ RENDER FUNCTIONS ============
+
+  function renderAmountButtons() {
+    const { symbol, rate } = currencyConfig[state.currency];
+    const buttons = document.querySelectorAll('.amt-btn:not(.cur-btn)');
+    buttons.forEach((btn, i) => {
+      const usdAmount = baseAmounts[i];
+      const converted = usdAmount * rate;
+      btn.dataset.amt = Math.round(converted);
+      btn.dataset.usd = usdAmount;
+      btn.textContent = symbol + fmt(converted);
+    });
+  }
+
   function updateImpact() {
-    const amtUSD = state.currency === 'UGX' ? state.amount / ugxRate : state.amount;
+    const { symbol, rate } = currencyConfig[state.currency];
+
+    const amtUSD = state.amount / rate;
     const impact = impacts.find(i => amtUSD <= i.max) || impacts[impacts.length - 1];
 
-    document.getElementById('impactAmount').textContent = symbols[state.currency] + state.amount.toLocaleString();
-    document.getElementById('impactFreq').textContent = state.frequency === 'monthly' ? 'every month' : 'right now';
+    document.getElementById('impactAmount').textContent = symbol + fmt(state.amount);
+    document.getElementById('impactFreq').textContent   = state.frequency === 'monthly' ? 'every month' : 'right now';
 
     document.getElementById('impactBox').innerHTML = `
       <div class="w-14 h-14 rounded-full bg-sun flex items-center justify-center text-hope-dark text-2xl shrink-0">
@@ -546,12 +572,15 @@
       </div>
     `;
 
-    document.getElementById('btnAmount').textContent = symbols[state.currency] + state.amount.toLocaleString();
-    document.getElementById('btnFreq').textContent = state.frequency === 'monthly' ? '/month' : 'Now';
-    document.getElementById('inputPrefix').textContent = symbols[state.currency];
+    document.getElementById('btnAmount').textContent = symbol + fmt(state.amount);
+    document.getElementById('btnFreq').textContent   = state.frequency === 'monthly' ? '/month' : ' Now';
+
+    document.getElementById('inputPrefix').textContent = symbol;
   }
 
-  // Frequency toggle
+  // ============ EVENT LISTENERS ============
+
+  // Frequency
   document.querySelectorAll('.freq-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.freq-btn').forEach(b => b.classList.remove('active'));
@@ -568,25 +597,22 @@
       btn.classList.add('active');
       state.currency = btn.dataset.cur;
 
-      // update preset amount labels
-      const rate = state.currency === 'UGX' ? ugxRate : 1;
-      document.querySelectorAll('.amt-btn').forEach(b => {
-        const usd = +b.dataset.amt;
-        let val = usd * rate;
-        if (state.currency === 'EUR') val = Math.round(usd * 0.92);
-        if (state.currency === 'GBP') val = Math.round(usd * 0.79);
-        b.textContent = symbols[state.currency] + val.toLocaleString();
-      });
+      renderAmountButtons();
 
+      const amountBtns = document.querySelectorAll('.amt-btn:not(.cur-btn)');
+      amountBtns.forEach(b => b.classList.remove('active'));
+      amountBtns[2].classList.add('active');
+      state.amount = +amountBtns[2].dataset.amt;
+
+      document.getElementById('customAmount').value = '';
       updateImpact();
     });
   });
 
-  // Amount
-  document.querySelectorAll('.amt-btn').forEach(btn => {
+  // Preset amounts
+  document.querySelectorAll('.amt-btn:not(.cur-btn)').forEach(btn => {
     btn.addEventListener('click', () => {
-      if (btn.classList.contains('cur-btn')) return;
-      document.querySelectorAll('.amt-btn').forEach(b => { if (!b.classList.contains('cur-btn')) b.classList.remove('active'); });
+      document.querySelectorAll('.amt-btn:not(.cur-btn)').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       state.amount = +btn.dataset.amt;
       document.getElementById('customAmount').value = '';
@@ -599,7 +625,7 @@
     const val = +e.target.value;
     if (val > 0) {
       state.amount = val;
-      document.querySelectorAll('.amt-btn').forEach(b => { if (!b.classList.contains('cur-btn')) b.classList.remove('active'); });
+      document.querySelectorAll('.amt-btn:not(.cur-btn)').forEach(b => b.classList.remove('active'));
       updateImpact();
     }
   });
@@ -613,7 +639,7 @@
     });
   });
 
-  // Tabs
+  // Payment tabs
   document.querySelectorAll('.tab-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -633,17 +659,20 @@
     });
   });
 
-  // Fade
+  // Fade-up
   const fadeObs = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.15 });
   document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
 
-  // Donate button — placeholder hook for Stripe/PayPal later
+  // Donate button
   document.getElementById('donateBtn').addEventListener('click', () => {
-    alert(`Thank you! You are about to donate ${symbols[state.currency]}${state.amount.toLocaleString()} ${state.frequency === 'monthly' ? 'per month' : 'once'} to ${state.purpose}.\n\n[Payment gateway will be wired here: Stripe / PayPal / Flutterwave / MTN MoMo]`);
+    const { symbol } = currencyConfig[state.currency];
+    alert(`Thank you! You are about to donate ${symbol}${fmt(state.amount)} ${state.frequency === 'monthly' ? 'per month' : 'once'} to ${state.purpose}.\n\n[Payment gateway will be wired here: Stripe / PayPal / Flutterwave / MTN MoMo]`);
   });
 
+  // ============ INITIAL RENDER ============
+  renderAmountButtons();
   updateImpact();
 </script>
 
