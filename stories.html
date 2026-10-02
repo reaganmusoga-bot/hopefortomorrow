@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Children's Stories & Field Updates — Hope for Tomorrow Foundation</title>
+<meta name="description" content="Read real stories of hope from the children of Hope for Tomorrow Foundation in Uganda. Education, health, shelter and mentorship breakthroughs — one life at a time." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          hope:  { DEFAULT: '#0F5132', light: '#166a41', dark: '#0a3a24' },
+          sun:   { DEFAULT: '#F4B942', light: '#f7c96b', dark: '#d99a1f' },
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  .hero-overlay { background: linear-gradient(120deg, rgba(10,58,36,.9) 0%, rgba(15,81,50,.72) 60%, rgba(10,58,36,.55) 100%); }
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .story-card { transition: transform .35s ease, box-shadow .35s ease; }
+  .story-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px -14px rgba(15,81,50,.3); }
+  .story-card:hover .story-img { transform: scale(1.08); }
+  .story-img { transition: transform .8s cubic-bezier(.22,1,.36,1); }
+  .filter-btn.active { background: #0F5132; color: #fff; }
+  .faq-item.open .faq-answer { max-height: 400px; padding-top: 1rem; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+</style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+<!-- ============ TOP BAR ============ -->
+<div class="bg-hope-dark text-white text-sm hidden md:block">
+  <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <span><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</span>
+      <span><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl font-bold shadow-md">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+      <div class="leading-tight">
+        <p class="font-display font-extrabold text-hope text-lg">Hope for Tomorrow</p>
+        <p class="text-[11px] uppercase tracking-widest text-gray-500">Foundation · Uganda</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-8 font-medium text-gray-700">
+      <li><a href="index.html" class="hover:text-hope transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-hope transition">About</a></li>
+      <li><a href="programs.html" class="hover:text-hope transition">Programs</a></li>
+      <li><a href="stories.html" class="text-hope font-semibold">Stories</a></li>
+      <li><a href="transparency.html" class="hover:text-hope transition">Transparency</a></li>
+      <li><a href="contact.html" class="hover:text-hope transition">Contact</a></li>
+    </ul>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="get-involved.html" class="text-hope font-semibold hover:text-hope-dark transition">Get Involved</a>
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-6 py-2.5 rounded-full shadow-md transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate
+      </a>
+    </div>
+
+    <button id="menuBtn" class="lg:hidden text-2xl text-hope"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 px-6 py-4">
+    <ul class="flex flex-col gap-4 font-medium text-gray-700">
+      <li><a href="index.html" class="block">Home</a></li>
+      <li><a href="about.html" class="block">About</a></li>
+      <li><a href="programs.html" class="block">Programs</a></li>
+      <li><a href="stories.html" class="block text-hope font-semibold">Stories</a></li>
+      <li><a href="transparency.html" class="block">Transparency</a></li>
+      <li><a href="get-involved.html" class="block">Get Involved</a></li>
+      <li><a href="contact.html" class="block">Contact</a></li>
+      <li><a href="donate.html" class="block bg-sun text-hope-dark font-bold text-center px-6 py-3 rounded-full">Donate</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative py-28 text-white overflow-hidden">
+  <img src="https://i.ibb.co/SDqWS34h/Whats-App-Image-2026-09-30-at-19-55-30.jpg"
+       class="absolute inset-0 w-full h-full object-cover" alt="Children's Stories">
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <nav class="text-sm text-white/70 mb-4">
+        <a href="index.html" class="hover:text-sun">Home</a>
+        <i class="fa-solid fa-chevron-right mx-2 text-xs"></i>
+        <span class="text-sun">Stories</span>
+      </nav>
+      <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur px-4 py-1.5 rounded-full text-sm font-medium">
+        <i class="fa-solid fa-book-open-reader text-sun"></i> Real children. Real breakthroughs.
+      </span>
+      <h1 class="font-display font-extrabold text-4xl md:text-6xl leading-tight mt-6">
+        Every child has a <span class="text-sun">story worth telling</span>.
+      </h1>
+      <p class="mt-6 text-lg text-white/90 max-w-2xl leading-relaxed">
+        These are the faces and voices behind your donations. Names and details are changed
+        to protect the children — but every story is true.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="#stories" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-6 py-3 rounded-full shadow-lg transition">
+          <i class="fa-solid fa-book-open mr-2"></i>Read Stories
+        </a>
+        <a href="#sponsor" class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur font-semibold px-6 py-3 rounded-full transition">
+          Sponsor a Child
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SAFEGUARDING NOTE ============ -->
+<section class="py-8 bg-sun/10 border-y border-sun/30">
+  <div class="max-w-7xl mx-auto px-6 flex items-start gap-4">
+    <div class="w-10 h-10 rounded-full bg-sun text-hope-dark flex items-center justify-center shrink-0"><i class="fa-solid fa-shield-halved"></i></div>
+    <div>
+      <p class="font-bold text-hope text-sm">Our Safeguarding Promise</p>
+      <p class="text-gray-700 text-sm mt-1">To protect our children, names, exact ages, locations and some identifying details have been changed or withheld. All stories are shared with consent from guardians, and photographs follow our strict child protection policy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED STORY ============ -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Featured Story</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">From the Street to the Classroom</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+      <div class="fade-up">
+        <img src="https://i.ibb.co/Cs4nKPHq/Whats-App-Image-2026-09-30-at-19-55-29-1.jpg"
+             class="rounded-3xl shadow-2xl w-full h-[520px] object-cover" alt="Featured story">
+      </div>
+
+      <div class="fade-up">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="bg-hope/10 text-hope font-bold text-xs uppercase tracking-widest px-3 py-1.5 rounded-full">Education</span>
+          <span class="text-gray-500 text-sm">April 2025 · 4 min read</span>
+        </div>
+
+        <h3 class="font-display font-extrabold text-2xl md:text-3xl text-hope leading-tight">
+          "I used to sell plastic bags on the street. Now I want to become a doctor."
+        </h3>
+
+        <p class="mt-6 text-gray-600 leading-relaxed">
+          When we met Sarah*, she was 9 years old, out of school, and helping her grandmother
+          hawk plastic bags to survive. Her mother had passed away, and her grandmother — already
+          elderly — couldn't afford school fees or food.
+        </p>
+        <p class="mt-4 text-gray-600 leading-relaxed">
+          Within a week of our team meeting her, Sarah was enrolled in school, given a uniform,
+          books, and a place in our home. Today, three years later, she is in Primary 5 —
+          top of her class in mathematics — and dreams of becoming a doctor so she can help
+          other children like her.
+        </p>
+        <p class="mt-4 text-gray-600 leading-relaxed">
+          Her grandmother visits every month. "I never thought I would see her in a school
+          uniform," she says. "Now she reads to me at night. God bless everyone who made this possible."
+        </p>
+
+        <div class="mt-8 p-6 bg-gray-50 border-l-4 border-sun rounded-r-xl">
+          <p class="text-gray-700 italic">"Now she reads to me at night. God bless everyone who made this possible."</p>
+          <p class="text-sm text-gray-500 mt-2">— Sarah's grandmother</p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="donate.html" class="bg-hope hover:bg-hope-light text-white font-bold px-6 py-3 rounded-full transition shadow-md">
+            <i class="fa-solid fa-heart mr-2"></i>Support a Child Like Sarah
+          </a>
+          <a href="#stories" class="border-2 border-hope text-hope hover:bg-hope hover:text-white font-bold px-6 py-3 rounded-full transition">
+            More Stories
+          </a>
+        </div>
+
+        <p class="text-xs text-gray-400 mt-5">*Name changed to protect the child's identity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILTER + STORY GRID ============ -->
+<section id="stories" class="py-24 bg-gray-50 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-12 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">More Stories</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Voices From Wakiso</h2>
+      <p class="text-gray-600 mt-4">Browse by category, or read them all — every one is a life changed.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="flex flex-wrap justify-center gap-3 mb-14 fade-up">
+      <button class="filter-btn active bg-white border-2 border-gray-200 text-gray-700 font-bold px-5 py-2.5 rounded-full transition" data-filter="all">All Stories</button>
+      <button class="filter-btn bg-white border-2 border-gray-200 text-gray-700 font-bold px-5 py-2.5 rounded-full transition" data-filter="education">Education</button>
+      <button class="filter-btn bg-white border-2 border-gray-200 text-gray-700 font-bold px-5 py-2.5 rounded-full transition" data-filter="health">Health</button>
+      <button class="filter-btn bg-white border-2 border-gray-200 text-gray-700 font-bold px-5 py-2.5 rounded-full transition" data-filter="shelter">Shelter</button>
+      <button class="filter-btn bg-white border-2 border-gray-200 text-gray-700 font-bold px-5 py-2.5 rounded-full transition" data-filter="mentorship">Mentorship</button>
+      <button class="filter-btn bg-white border-2 border-gray-200 text-gray-700 font-bold px-5 py-2.5 rounded-full transition" data-filter="updates">Updates</button>
+    </div>
+
+    <!-- Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Card 1: Education -->
+      <article class="story-card bg-white rounded-3xl overflow-hidden border border-gray-100 fade-up" data-category="education">
+        <div class="overflow-hidden h-56">
+          <img src="https://i.ibb.co/xtTNN0yH/Whats-App-Image-2026-09-30-at-19-55-29.jpg" class="story-img w-full h-full object-cover" alt="">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-hope/10 text-hope font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full">Education</span>
+            <span class="text-gray-400 text-xs">March 2025</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-hope leading-snug">From D+ to A: How Tutoring Changed Joseph's Life</h3>
+          <p class="text-gray-600 text-sm mt-3">"I used to hide my report card. Now I run home to show my mother." Joseph's rise from failing grades to top of his class — in one year.</p>
+          <a href="#" class="inline-flex items-center gap-2 mt-5 text-hope font-bold text-sm hover:text-hope-dark transition">Read Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 2: Health -->
+      <article class="story-card bg-white rounded-3xl overflow-hidden border border-gray-100 fade-up" data-category="health">
+        <div class="overflow-hidden h-56">
+          <img src="https://i.ibb.co/vCTx9MvS/Whats-App-Image-2026-09-30-at-19-55-28.jpg" class="story-img w-full h-full object-cover" alt="">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-hope/10 text-hope font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full">Health</span>
+            <span class="text-gray-400 text-xs">March 2025</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-hope leading-snug">A Checkup That Saved a Life</h3>
+          <p class="text-gray-600 text-sm mt-3">A routine medical checkup picked up a heart condition in 7-year-old Mary. Two months later, she's thriving after successful treatment.</p>
+          <a href="#" class="inline-flex items-center gap-2 mt-5 text-hope font-bold text-sm hover:text-hope-dark transition">Read Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 3: Shelter -->
+      <article class="story-card bg-white rounded-3xl overflow-hidden border border-gray-100 fade-up" data-category="shelter">
+        <div class="overflow-hidden h-56">
+          <img src="https://i.ibb.co/q3qxRTR6/Whats-App-Image-2026-09-30-at-19-55-29-2.jpg" class="story-img w-full h-full object-cover" alt="">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-hope/10 text-hope font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full">Shelter</span>
+            <span class="text-gray-400 text-xs">February 2025</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-hope leading-snug">Three Brothers, One Bed, One Big Change</h3>
+          <p class="text-gray-600 text-sm mt-3">After losing both parents, three brothers slept on a single mat in a relative's hut. Today, they each have their own bed — and a home.</p>
+          <a href="#" class="inline-flex items-center gap-2 mt-5 text-hope font-bold text-sm hover:text-hope-dark transition">Read Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 4: Mentorship -->
+      <article class="story-card bg-white rounded-3xl overflow-hidden border border-gray-100 fade-up" data-category="mentorship">
+        <div class="overflow-hidden h-56">
+          <img src="https://i.ibb.co/q366XWG9/Whats-App-Image-2026-09-30-at-19-55-31.jpg" class="story-img w-full h-full object-cover" alt="">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-hope/10 text-hope font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full">Mentorship</span>
+            <span class="text-gray-400 text-xs">February 2025</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-hope leading-snug">The Tailor Who Dreamed of a Shop</h3>
+          <p class="text-gray-600 text-sm mt-3">At 17, Daniel finished our vocational tailoring course. A year later, he employs two other graduates. Here's his story.</p>
+          <a href="#" class="inline-flex items-center gap-2 mt-5 text-hope font-bold text-sm hover:text-hope-dark transition">Read Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 5: Education -->
+      <article class="story-card bg-white rounded-3xl overflow-hidden border border-gray-100 fade-up" data-category="education">
+        <div class="overflow-hidden h-56">
+          <img src="https://i.ibb.co/SDqWS34h/Whats-App-Image-2026-09-30-at-19-55-30.jpg" class="story-img w-full h-full object-cover" alt="">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-hope/10 text-hope font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full">Education</span>
+            <span class="text-gray-400 text-xs">January 2025</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-hope leading-snug">The Girl Who Walked 8km to School — Now She Runs a Library Club</h3>
+          <p class="text-gray-600 text-sm mt-3">Grace used to walk two hours each way to school. Now she lives on-site and runs our Saturday reading club for 40 younger children.</p>
+          <a href="#" class="inline-flex items-center gap-2 mt-5 text-hope font-bold text-sm hover:text-hope-dark transition">Read Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 6: Health -->
+      <article class="story-card bg-white rounded-3xl overflow-hidden border border-gray-100 fade-up" data-category="health">
+        <div class="overflow-hidden h-56">
+          <img src="https://i.ibb.co/Cs4nKPHq/Whats-App-Image-2026-09-30-at-19-55-29-1.jpg" class="story-img w-full h-full object-cover" alt="">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-hope/10 text-hope font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full">Health</span>
+            <span class="text-gray-400 text-xs">January 2025</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-hope leading-snug">From Malnourished to Marathon Runner</h3>
+          <p class="text-gray-600 text-sm mt-3">When Peter arrived, he was 6 years old and weighed what a 3-year-old should. Three years later, he won his school's cross-country race.</p>
+          <a href="#" class="inline-flex items-center gap-2 mt-5 text-hope font-bold text-sm hover:text-hope-dark transition">Read Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 7: Updates -->
+      <article class="story-card bg-white rounded-3xl overflow-hidden border border-gray-100 fade-up" data-category="updates">
+        <div class="overflow-hidden h-56">
+          <img src="https://i.ibb.co/q3qxRTR6/Whats-App-Image-2026-09-30-at-19-55-29-2.jpg" class="story-img w-full h-full object-cover" alt="">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-sun/20 text-sun-dark font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full">Update</span>
+            <span class="text-gray-400 text-xs">December 2024</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-hope leading-snug">A New Kitchen, A New Beginning</h3>
+          <p class="text-gray-600 text-sm mt-3">Thanks to our donors, we completed a modern kitchen that now cooks 1,200 meals a month for our children. Here's what changed.</p>
+          <a href="#" class="inline-flex items-center gap-2 mt-5 text-hope font-bold text-sm hover:text-hope-dark transition">Read Update <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 8: Shelter -->
+      <article class="story-card bg-white rounded-3xl overflow-hidden border border-gray-100 fade-up" data-category="shelter">
+        <div class="overflow-hidden h-56">
+          <img src="https://i.ibb.co/xtTNN0yH/Whats-App-Image-2026-09-30-at-19-55-29.jpg" class="story-img w-full h-full object-cover" alt="">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-hope/10 text-hope font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full">Shelter</span>
+            <span class="text-gray-400 text-xs">December 2024</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-hope leading-snug">A Christmas They'll Never Forget</h3>
+          <p class="text-gray-600 text-sm mt-3">For many of our children, it was their first Christmas with a family. New shoes, a hot meal, and — for the first time — a gift.</p>
+          <a href="#" class="inline-flex items-center gap-2 mt-5 text-hope font-bold text-sm hover:text-hope-dark transition">Read Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </article>
+
+      <!-- Card 9: Mentorship -->
+      <article class="story-card bg-white rounded-3xl overflow-hidden border border-gray-100 fade-up" data-category="mentorship">
+        <div class="overflow-hidden h-56">
+          <img src="https://i.ibb.co/vCTx9MvS/Whats-App-Image-2026-09-30-at-19-55-28.jpg" class="story-img w-full h-full object-cover" alt="">
+        </div>
+        <div class="p-6">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="bg-hope/10 text-hope font-bold text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-full">Mentorship</span>
+            <span class="text-gray-400 text-xs">November 2024</span>
+          </div>
+          <h3 class="font-display font-bold text-lg text-hope leading-snug">From Our Home to University</h3>
+          <p class="text-gray-600 text-sm mt-3">Brian was one of our first children. This year, he started university on a full scholarship — and comes back to mentor the younger ones.</p>
+          <a href="#" class="inline-flex items-center gap-2 mt-5 text-hope font-bold text-sm hover:text-hope-dark transition">Read Story <i class="fa-solid fa-arrow-right text-xs"></i></a>
+        </div>
+      </article>
+
+    </div>
+
+    <p class="text-center text-gray-400 text-sm mt-14 fade-up">
+      <i class="fa-solid fa-circle-info mr-1"></i>Additional stories will be added as our team publishes new content each month.
+    </p>
+  </div>
+</section>
+
+<!-- ============ CHILD OF THE MONTH / SPONSOR ============ -->
+<section id="sponsor" class="py-24 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="bg-hope text-white rounded-3xl overflow-hidden shadow-2xl grid lg:grid-cols-2 fade-up">
+      <div class="relative">
+        <img src="https://i.ibb.co/q366XWG9/Whats-App-Image-2026-09-30-at-19-55-31.jpg"
+             class="w-full h-full object-cover min-h-[420px]" alt="Child of the Month">
+        <span class="absolute top-6 left-6 bg-sun text-hope-dark text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full">Child of the Month</span>
+      </div>
+
+      <div class="p-10 md:p-14 flex flex-col justify-center">
+        <span class="text-sun font-bold uppercase tracking-widest text-sm">Meet [Name]</span>
+        <h2 class="font-display font-extrabold text-3xl md:text-4xl mt-3 leading-tight">
+          She wants to be a teacher. You can help her get there.
+        </h2>
+        <p class="text-white/80 mt-6 leading-relaxed">
+          [Name] joined us 18 months ago after her mother passed. She's now in Primary 4,
+          loves reading, and helps teach the younger children their alphabet. She needs a
+          sponsor to keep her in school next year.
+        </p>
+
+        <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+          <div class="bg-white/5 border border-white/15 rounded-xl p-4">
+            <p class="font-display font-extrabold text-2xl text-sun">9</p>
+            <p class="text-xs uppercase tracking-wider text-white/70 mt-1">Years Old</p>
+          </div>
+          <div class="bg-white/5 border border-white/15 rounded-xl p-4">
+            <p class="font-display font-extrabold text-2xl text-sun">P.4</p>
+            <p class="text-xs uppercase tracking-wider text-white/70 mt-1">Class</p>
+          </div>
+          <div class="bg-white/5 border border-white/15 rounded-xl p-4">
+            <p class="font-display font-extrabold text-2xl text-sun">18</p>
+            <p class="text-xs uppercase tracking-wider text-white/70 mt-1">Months With Us</p>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-7 py-3.5 rounded-full shadow-lg transition">
+            <i class="fa-solid fa-heart mr-2"></i>Sponsor [Name]
+          </a>
+          <a href="get-involved.html" class="bg-transparent border-2 border-white/40 hover:bg-white/10 font-bold px-7 py-3.5 rounded-full transition">
+            See Other Children
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FIELD UPDATES ============ -->
+<section class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">From the Field</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Short Updates</h2>
+      <p class="text-gray-600 mt-4">Quick news from our team in Wakiso — the small moments that make up the big picture.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-10 h-10 rounded-full bg-hope text-sun flex items-center justify-center text-sm"><i class="fa-solid fa-school"></i></span>
+          <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">April 2025</p>
+        </div>
+        <h3 class="font-display font-bold text-hope">12 new children enrolled in school</h3>
+        <p class="text-gray-600 text-sm mt-2">Thanks to a donor gift, 12 new children started school this term — each with uniforms, books and a hot meal plan.</p>
+      </div>
+
+      <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-10 h-10 rounded-full bg-hope text-sun flex items-center justify-center text-sm"><i class="fa-solid fa-syringe"></i></span>
+          <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">March 2025</p>
+        </div>
+        <h3 class="font-display font-bold text-hope">Community health clinic served 87 families</h3>
+        <p class="text-gray-600 text-sm mt-2">Our monthly mobile clinic visited 3 villages last month — providing checkups, vaccinations and medicine free of charge.</p>
+      </div>
+
+      <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="w-10 h-10 rounded-full bg-hope text-sun flex items-center justify-center text-sm"><i class="fa-solid fa-trowel-bricks"></i></span>
+          <p class="text-xs text-gray-500 uppercase tracking-widest font-bold">February 2025</p>
+        </div>
+        <h3 class="font-display font-bold text-hope">New dormitory construction underway</h3>
+        <p class="text-gray-600 text-sm mt-2">Our new girls' dormitory — funded by three international donors — is 40% complete. Completion expected by August.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWSLETTER ============ -->
+<section class="py-20 bg-hope text-white">
+  <div class="max-w-4xl mx-auto px-6 text-center fade-up">
+    <div class="w-16 h-16 mx-auto rounded-full bg-sun/20 text-sun flex items-center justify-center text-2xl mb-6">
+      <i class="fa-solid fa-envelope-open-text"></i>
+    </div>
+    <h2 class="font-display font-extrabold text-3xl md:text-4xl">Get stories in your inbox</h2>
+    <p class="text-white/80 mt-4 max-w-xl mx-auto">Once a month, we send one story and one update from the field. No spam, ever. Unsubscribe anytime.</p>
+
+    <form class="mt-8 max-w-lg mx-auto flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); this.reset(); this.querySelector('button').innerHTML='<i class=\'fa-solid fa-check mr-2\'></i>Subscribed!';">
+      <input type="email" required placeholder="you@email.com" class="flex-1 px-5 py-4 rounded-full border-0 text-gray-800 focus:outline-none focus:ring-4 focus:ring-sun/40" />
+      <button type="submit" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-8 py-4 rounded-full transition whitespace-nowrap">
+        <i class="fa-solid fa-paper-plane mr-2"></i>Subscribe
+      </button>
+    </form>
+    <p class="text-xs text-white/50 mt-4"><i class="fa-solid fa-lock mr-1"></i>We never share your email. Ever.</p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="py-24">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">About Our Stories</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Questions</h2>
+    </div>
+
+    <div class="space-y-4">
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Why are the children's names changed?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">To protect their privacy, dignity and safety. Many of our children have experienced trauma or come from vulnerable situations. Changing names ensures no one can identify them outside our community.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Are the stories real?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes — 100%. Every story is based on a real child in our care. Names, dates and small details are changed to protect identities, but the substance of each story is true and verified by our team.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Do the children consent to their photos being used?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes. We follow strict child protection standards. Photos are only used with informed consent from guardians and, where age-appropriate, the child themselves. Any child can withdraw consent at any time.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Can I write to a child I sponsor?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes! Letter writing is one of the most meaningful parts of sponsorship — for the child and for you. We coordinate all letters through our team to keep everyone safe and to help with translation where needed.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          How often do sponsors receive updates?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Sponsors receive a personal update every 3 months with a new photo, a short report on progress (school, health, wellbeing), and often a note or drawing from the child.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Can I share these stories on social media?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes — please do! Sharing our stories is one of the most powerful ways to help. We just ask that you link back to our website and don't crop or edit photos in ways that might compromise the child's dignity.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="relative py-24 text-white overflow-hidden">
+  <div class="absolute inset-0 bg-hope-dark"></div>
+  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 20% 20%, #F4B942 0, transparent 40%), radial-gradient(circle at 80% 80%, #F4B942 0, transparent 40%);"></div>
+
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+    <h2 class="font-display font-extrabold text-3xl md:text-4xl">Write the next story.</h2>
+    <p class="text-white/80 mt-4">There are hundreds of children whose stories haven't been told yet. Your gift writes their next chapter.</p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-8 py-4 rounded-full shadow-lg transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate Now
+      </a>
+      <a href="get-involved.html" class="bg-transparent border-2 border-white/60 hover:bg-white/10 font-bold px-8 py-4 rounded-full transition">
+        Sponsor a Child
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-hope-dark text-white/80">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div>
+          <p class="font-display font-extrabold text-white text-lg leading-none">Hope for Tomorrow</p>
+          <p class="text-[11px] uppercase tracking-widest text-white/60">Foundation · Uganda</p>
+        </div>
+      </div>
+      <p class="text-sm leading-relaxed">Empowering Uganda's most vulnerable children with education, nutrition, health and hope.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-sun transition">About Us</a></li>
+        <li><a href="programs.html" class="hover:text-sun transition">Our Programs</a></li>
+        <li><a href="stories.html" class="hover:text-sun transition">Children's Stories</a></li>
+        <li><a href="transparency.html" class="hover:text-sun transition">Transparency</a></li>
+        <li><a href="get-involved.html" class="hover:text-sun transition">Get Involved</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Read More</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-sun transition">Education Stories</a></li>
+        <li><a href="#" class="hover:text-sun transition">Health Stories</a></li>
+        <li><a href="#" class="hover:text-sun transition">Shelter Stories</a></li>
+        <li><a href="#" class="hover:text-sun transition">Mentorship Stories</a></li>
+        <li><a href="#" class="hover:text-sun transition">Field Updates</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Contact</h4>
+      <ul class="space-y-3 text-sm">
+        <li><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</li>
+        <li><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</li>
+        <li><i class="fa-solid fa-envelope mr-2 text-sun"></i>info@hopefortomorrow.org</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white/60">
+      © <span id="year"></span> Hope for Tomorrow Foundation. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="toTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-hope text-white shadow-lg hidden items-center justify-center hover:bg-hope-light transition z-40">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Fade
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+  // Filters
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const storyCards = document.querySelectorAll('[data-category]');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      storyCards.forEach(card => {
+        if (filter === 'all' || card.dataset.category === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // FAQ
+  document.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) { toTop.classList.remove('hidden'); toTop.classList.add('flex'); }
+    else { toTop.classList.add('hidden'); toTop.classList.remove('flex'); }
+  });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>
