@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Transparency & Reports — Hope for Tomorrow Foundation | Uganda NGO</title>
+<meta name="description" content="Full financial transparency, independently audited annual reports, governance and compliance for Hope for Tomorrow Foundation. Every shilling accounted for." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          hope:  { DEFAULT: '#0F5132', light: '#166a41', dark: '#0a3a24' },
+          sun:   { DEFAULT: '#F4B942', light: '#f7c96b', dark: '#d99a1f' },
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  .hero-overlay { background: linear-gradient(120deg, rgba(10,58,36,.94) 0%, rgba(15,81,50,.8) 60%, rgba(10,58,36,.55) 100%); }
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .trust-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(15,81,50,.25); }
+  .trust-card { transition: transform .35s ease, box-shadow .35s ease; }
+  .bar-fill { transition: width 1.6s cubic-bezier(.22,1,.36,1); }
+  .faq-item.open .faq-answer { max-height: 400px; padding-top: 1rem; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+</style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+<!-- ============ TOP BAR ============ -->
+<div class="bg-hope-dark text-white text-sm hidden md:block">
+  <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <span><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</span>
+      <span><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl font-bold shadow-md">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+      <div class="leading-tight">
+        <p class="font-display font-extrabold text-hope text-lg">Hope for Tomorrow</p>
+        <p class="text-[11px] uppercase tracking-widest text-gray-500">Foundation · Uganda</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-8 font-medium text-gray-700">
+      <li><a href="index.html" class="hover:text-hope transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-hope transition">About</a></li>
+      <li><a href="programs.html" class="hover:text-hope transition">Programs</a></li>
+      <li><a href="stories.html" class="hover:text-hope transition">Stories</a></li>
+      <li><a href="transparency.html" class="text-hope font-semibold">Transparency</a></li>
+      <li><a href="contact.html" class="hover:text-hope transition">Contact</a></li>
+    </ul>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="get-involved.html" class="text-hope font-semibold hover:text-hope-dark transition">Get Involved</a>
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-6 py-2.5 rounded-full shadow-md transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate
+      </a>
+    </div>
+
+    <button id="menuBtn" class="lg:hidden text-2xl text-hope"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 px-6 py-4">
+    <ul class="flex flex-col gap-4 font-medium text-gray-700">
+      <li><a href="index.html" class="block">Home</a></li>
+      <li><a href="about.html" class="block">About</a></li>
+      <li><a href="programs.html" class="block">Programs</a></li>
+      <li><a href="stories.html" class="block">Stories</a></li>
+      <li><a href="transparency.html" class="block text-hope font-semibold">Transparency</a></li>
+      <li><a href="get-involved.html" class="block">Get Involved</a></li>
+      <li><a href="contact.html" class="block">Contact</a></li>
+      <li><a href="donate.html" class="block bg-sun text-hope-dark font-bold text-center px-6 py-3 rounded-full">Donate</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative py-28 text-white overflow-hidden">
+  <img src="https://i.ibb.co/vCTx9MvS/Whats-App-Image-2026-09-30-at-19-55-28.jpg"
+       class="absolute inset-0 w-full h-full object-cover" alt="Transparency">
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <nav class="text-sm text-white/70 mb-4">
+        <a href="index.html" class="hover:text-sun">Home</a>
+        <i class="fa-solid fa-chevron-right mx-2 text-xs"></i>
+        <span class="text-sun">Transparency</span>
+      </nav>
+      <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur px-4 py-1.5 rounded-full text-sm font-medium">
+        <i class="fa-solid fa-shield-halved text-sun"></i> Independently audited · Registered · Compliant
+      </span>
+      <h1 class="font-display font-extrabold text-4xl md:text-6xl leading-tight mt-6">
+        Every shilling <span class="text-sun">accounted for</span>.
+      </h1>
+      <p class="mt-6 text-lg text-white/90 max-w-2xl leading-relaxed">
+        Trust isn't claimed — it's proven. Here is our full financial picture, our governance,
+        our policies, and our independently audited annual reports. Read them, question them,
+        hold us to them.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="#reports" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-6 py-3 rounded-full shadow-lg transition">
+          <i class="fa-solid fa-file-arrow-down mr-2"></i>Download Reports
+        </a>
+        <a href="#financials" class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur font-semibold px-6 py-3 rounded-full transition">
+          See Financials
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST BADGES ============ -->
+<section class="py-16 bg-gray-50 border-b border-gray-100">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-center text-gray-500 uppercase tracking-widest text-xs mb-8 fade-up">Trusted & Verified</p>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+      <div class="trust-card bg-white rounded-2xl p-6 text-center border-2 border-gray-100 fade-up">
+        <div class="w-14 h-14 mx-auto rounded-full bg-hope text-sun flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-certificate"></i></div>
+        <p class="font-display font-bold text-hope text-sm">Registered NGO</p>
+        <p class="text-xs text-gray-500 mt-1">Uganda NGO Board · Reg. No. [XXXXX]</p>
+      </div>
+
+      <div class="trust-card bg-white rounded-2xl p-6 text-center border-2 border-gray-100 fade-up">
+        <div class="w-14 h-14 mx-auto rounded-full bg-hope text-sun flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-file-shield"></i></div>
+        <p class="font-display font-bold text-hope text-sm">Independently Audited</p>
+        <p class="text-xs text-gray-500 mt-1">Annual audit by [Audit Firm]</p>
+      </div>
+
+      <div class="trust-card bg-white rounded-2xl p-6 text-center border-2 border-gray-100 fade-up">
+        <div class="w-14 h-14 mx-auto rounded-full bg-hope text-sun flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-child-reaching"></i></div>
+        <p class="font-display font-bold text-hope text-sm">Child Protection Policy</p>
+        <p class="text-xs text-gray-500 mt-1">Safeguarding certified staff</p>
+      </div>
+
+      <div class="trust-card bg-white rounded-2xl p-6 text-center border-2 border-gray-100 fade-up">
+        <div class="w-14 h-14 mx-auto rounded-full bg-hope text-sun flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-user-shield"></i></div>
+        <p class="font-display font-bold text-hope text-sm">Anti-Fraud Compliant</p>
+        <p class="text-xs text-gray-500 mt-1">Whistleblower hotline active</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHERE MONEY GOES ============ -->
+<section id="financials" class="py-24 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Where Your Money Goes</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">90% goes straight to the children.</h2>
+      <p class="text-gray-600 mt-4">Only 10% covers essential administration. We run lean, hire locally, and maximize every shilling.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+
+      <!-- Bars -->
+      <div class="space-y-7 fade-up">
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-hope flex items-center gap-2"><i class="fa-solid fa-graduation-cap text-sun-dark"></i> Education Programs</span>
+            <span class="font-display font-extrabold text-hope">45%</span>
+          </div>
+          <div class="w-full bg-gray-100 rounded-full h-3"><div class="bar-fill bg-hope h-3 rounded-full" data-width="45" style="width:0"></div></div>
+          <p class="text-xs text-gray-500 mt-2">School fees, uniforms, books, tutoring and exam prep.</p>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-hope flex items-center gap-2"><i class="fa-solid fa-bowl-food text-sun-dark"></i> Nutrition & Health</span>
+            <span class="font-display font-extrabold text-hope">30%</span>
+          </div>
+          <div class="w-full bg-gray-100 rounded-full h-3"><div class="bar-fill bg-hope h-3 rounded-full" data-width="30" style="width:0"></div></div>
+          <p class="text-xs text-gray-500 mt-2">Three daily meals, clean water, medical checkups and treatment.</p>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-hope flex items-center gap-2"><i class="fa-solid fa-house-chimney text-sun-dark"></i> Safe Shelter</span>
+            <span class="font-display font-extrabold text-hope">15%</span>
+          </div>
+          <div class="w-full bg-gray-100 rounded-full h-3"><div class="bar-fill bg-hope h-3 rounded-full" data-width="15" style="width:0"></div></div>
+          <p class="text-xs text-gray-500 mt-2">Housing, bedding, utilities, house parents and counseling.</p>
+        </div>
+
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="font-semibold text-hope flex items-center gap-2"><i class="fa-solid fa-building-columns text-sun-dark"></i> Administration</span>
+            <span class="font-display font-extrabold text-hope">10%</span>
+          </div>
+          <div class="w-full bg-gray-100 rounded-full h-3"><div class="bar-fill bg-sun h-3 rounded-full" data-width="10" style="width:0"></div></div>
+          <p class="text-xs text-gray-500 mt-2">Accounting, audits, banking, reporting and compliance.</p>
+        </div>
+      </div>
+
+      <!-- Big donut/visual -->
+      <div class="fade-up flex justify-center">
+        <div class="relative w-72 h-72 md:w-96 md:h-96">
+          <svg viewBox="0 0 36 36" class="w-full h-full -rotate-90">
+            <circle cx="18" cy="18" r="15.915" fill="none" stroke="#e5e7eb" stroke-width="3"></circle>
+            <!-- Education 45% -->
+            <circle cx="18" cy="18" r="15.915" fill="none" stroke="#0F5132" stroke-width="3.5"
+                    stroke-dasharray="45 55" stroke-dashoffset="0" stroke-linecap="butt"></circle>
+            <!-- Nutrition 30% -->
+            <circle cx="18" cy="18" r="15.915" fill="none" stroke="#166a41" stroke-width="3.5"
+                    stroke-dasharray="30 70" stroke-dashoffset="-45" stroke-linecap="butt"></circle>
+            <!-- Shelter 15% -->
+            <circle cx="18" cy="18" r="15.915" fill="none" stroke="#F4B942" stroke-width="3.5"
+                    stroke-dasharray="15 85" stroke-dashoffset="-75" stroke-linecap="butt"></circle>
+            <!-- Admin 10% -->
+            <circle cx="18" cy="18" r="15.915" fill="none" stroke="#d99a1f" stroke-width="3.5"
+                    stroke-dasharray="10 90" stroke-dashoffset="-90" stroke-linecap="butt"></circle>
+          </svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+            <p class="font-display font-extrabold text-5xl text-hope">90%</p>
+            <p class="text-gray-500 text-sm mt-1">direct to children</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINANCIAL SNAPSHOT ============ -->
+<section class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Financial Snapshot</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Last 3 Years at a Glance</h2>
+      <p class="text-gray-600 mt-4">A summary of income and expenses. Full audited statements available for download below.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6 mb-12">
+      <!-- Year 1 -->
+      <div class="trust-card bg-white rounded-3xl p-8 border-2 border-gray-100 fade-up">
+        <p class="text-sun-dark font-bold text-xs uppercase tracking-widest">FY 2022</p>
+        <p class="font-display font-extrabold text-3xl text-hope mt-2">$48,200</p>
+        <p class="text-gray-500 text-sm">Total Income</p>
+        <div class="border-t border-gray-100 my-5"></div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between"><span class="text-gray-600">Programs</span><span class="font-bold text-hope">89%</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Admin</span><span class="font-bold text-hope">11%</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Children reached</span><span class="font-bold text-hope">180</span></div>
+        </div>
+      </div>
+
+      <!-- Year 2 -->
+      <div class="trust-card bg-white rounded-3xl p-8 border-2 border-gray-100 fade-up">
+        <p class="text-sun-dark font-bold text-xs uppercase tracking-widest">FY 2023</p>
+        <p class="font-display font-extrabold text-3xl text-hope mt-2">$82,600</p>
+        <p class="text-gray-500 text-sm">Total Income</p>
+        <div class="border-t border-gray-100 my-5"></div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between"><span class="text-gray-600">Programs</span><span class="font-bold text-hope">90%</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Admin</span><span class="font-bold text-hope">10%</span></div>
+          <div class="flex justify-between"><span class="text-gray-600">Children reached</span><span class="font-bold text-hope">320</span></div>
+        </div>
+      </div>
+
+      <!-- Year 3 (highlighted) -->
+      <div class="trust-card bg-hope text-white rounded-3xl p-8 shadow-2xl scale-105 relative fade-up">
+        <span class="absolute -top-3 right-6 bg-sun text-hope-dark text-xs font-bold px-3 py-1.5 rounded-full">LATEST</span>
+        <p class="text-sun font-bold text-xs uppercase tracking-widest">FY 2024</p>
+        <p class="font-display font-extrabold text-3xl text-sun mt-2">$134,900</p>
+        <p class="text-white/70 text-sm">Total Income</p>
+        <div class="border-t border-white/15 my-5"></div>
+        <div class="space-y-3 text-sm">
+          <div class="flex justify-between"><span class="text-white/80">Programs</span><span class="font-bold text-sun">90%</span></div>
+          <div class="flex justify-between"><span class="text-white/80">Admin</span><span class="font-bold text-sun">10%</span></div>
+          <div class="flex justify-between"><span class="text-white/80">Children reached</span><span class="font-bold text-sun">500+</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-gray-400 fade-up">
+      <i class="fa-solid fa-circle-info mr-1"></i>Figures are illustrative placeholders. Replace with your actual audited numbers.
+    </p>
+  </div>
+</section>
+
+<!-- ============ REPORTS LIBRARY ============ -->
+<section id="reports" class="py-24 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Reports Library</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Download Our Documents</h2>
+      <p class="text-gray-600 mt-4">Every report is available for public review. No login, no gatekeeping.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+      <!-- Report 1 -->
+      <a href="#" class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 flex items-center gap-5 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-file-pdf"></i></div>
+        <div class="flex-1">
+          <p class="font-display font-bold text-hope">Annual Report 2024</p>
+          <p class="text-xs text-gray-500 mt-1">PDF · 3.2 MB · Published March 2025</p>
+        </div>
+        <span class="text-sun-dark font-bold text-sm">Download <i class="fa-solid fa-arrow-down ml-1"></i></span>
+      </a>
+
+      <!-- Report 2 -->
+      <a href="#" class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 flex items-center gap-5 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        <div class="flex-1">
+          <p class="font-display font-bold text-hope">Audited Financial Statements 2024</p>
+          <p class="text-xs text-gray-500 mt-1">PDF · 1.8 MB · Audited by [Audit Firm]</p>
+        </div>
+        <span class="text-sun-dark font-bold text-sm">Download <i class="fa-solid fa-arrow-down ml-1"></i></span>
+      </a>
+
+      <!-- Report 3 -->
+      <a href="#" class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 flex items-center gap-5 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-file-pdf"></i></div>
+        <div class="flex-1">
+          <p class="font-display font-bold text-hope">Annual Report 2023</p>
+          <p class="text-xs text-gray-500 mt-1">PDF · 2.9 MB · Published March 2024</p>
+        </div>
+        <span class="text-sun-dark font-bold text-sm">Download <i class="fa-solid fa-arrow-down ml-1"></i></span>
+      </a>
+
+      <!-- Report 4 -->
+      <a href="#" class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 flex items-center gap-5 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+        <div class="flex-1">
+          <p class="font-display font-bold text-hope">Audited Financial Statements 2023</p>
+          <p class="text-xs text-gray-500 mt-1">PDF · 1.6 MB · Audited by [Audit Firm]</p>
+        </div>
+        <span class="text-sun-dark font-bold text-sm">Download <i class="fa-solid fa-arrow-down ml-1"></i></span>
+      </a>
+
+      <!-- Report 5 -->
+      <a href="#" class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 flex items-center gap-5 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-file-shield"></i></div>
+        <div class="flex-1">
+          <p class="font-display font-bold text-hope">Child Protection Policy</p>
+          <p class="text-xs text-gray-500 mt-1">PDF · 480 KB · Updated January 2025</p>
+        </div>
+        <span class="text-sun-dark font-bold text-sm">Download <i class="fa-solid fa-arrow-down ml-1"></i></span>
+      </a>
+
+      <!-- Report 6 -->
+      <a href="#" class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 flex items-center gap-5 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-xl shrink-0"><i class="fa-solid fa-certificate"></i></div>
+        <div class="flex-1">
+          <p class="font-display font-bold text-hope">NGO Registration Certificate</p>
+          <p class="text-xs text-gray-500 mt-1">PDF · 320 KB · Uganda NGO Board</p>
+        </div>
+        <span class="text-sun-dark font-bold text-sm">Download <i class="fa-solid fa-arrow-down ml-1"></i></span>
+      </a>
+
+    </div>
+
+    <p class="text-center text-xs text-gray-400 mt-10 fade-up">
+      <i class="fa-solid fa-circle-info mr-1"></i>Upload your real PDFs and update these links when ready.
+    </p>
+  </div>
+</section>
+
+<!-- ============ GOVERNANCE ============ -->
+<section class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Governance</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Who Oversees Us</h2>
+      <p class="text-gray-600 mt-4">Independent oversight ensures decisions are made for the children — not for convenience.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <div class="bg-white rounded-3xl p-8 border-2 border-gray-100 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-xl mb-5"><i class="fa-solid fa-people-roof"></i></div>
+        <h3 class="font-display font-bold text-lg text-hope">Board of Trustees</h3>
+        <p class="text-gray-600 text-sm mt-3">A volunteer board of [5] Ugandan and international professionals oversees strategy, finance and child welfare. The board meets quarterly.</p>
+        <ul class="mt-4 text-xs text-gray-500 space-y-1">
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>[Board Chair Name] — Chairperson</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>[Treasurer Name] — Treasurer</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>[Secretary Name] — Secretary</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-3xl p-8 border-2 border-gray-100 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-xl mb-5"><i class="fa-solid fa-user-tie"></i></div>
+        <h3 class="font-display font-bold text-lg text-hope">Executive Team</h3>
+        <p class="text-gray-600 text-sm mt-3">Day-to-day management is handled by our Executive Director and senior staff, who report monthly to the board.</p>
+        <ul class="mt-4 text-xs text-gray-500 space-y-1">
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>[Name] — Executive Director</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>[Name] — Programs Director</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>[Name] — Finance Officer</li>
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-3xl p-8 border-2 border-gray-100 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-xl mb-5"><i class="fa-solid fa-scale-balanced"></i></div>
+        <h3 class="font-display font-bold text-lg text-hope">Independent Audit</h3>
+        <p class="text-gray-600 text-sm mt-3">Our accounts are audited annually by an independent, licensed firm unaffiliated with our organization.</p>
+        <ul class="mt-4 text-xs text-gray-500 space-y-1">
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Auditor: [Audit Firm Name]</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>License: [Auditor Reg. No.]</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Last audit: March 2025 (FY 2024)</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ POLICIES ============ -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Compliance & Policies</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Policies We Live By</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="w-11 h-11 rounded-xl bg-hope/10 text-hope flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-child"></i></div>
+        <h3 class="font-bold text-hope">Child Protection & Safeguarding</h3>
+        <p class="text-gray-600 text-sm mt-2">Zero-tolerance for abuse. All staff and volunteers are vetted, trained and bound by our safeguarding policy.</p>
+      </div>
+
+      <div class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="w-11 h-11 rounded-xl bg-hope/10 text-hope flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-user-shield"></i></div>
+        <h3 class="font-bold text-hope">Anti-Fraud & Whistleblowing</h3>
+        <p class="text-gray-600 text-sm mt-2">Anonymous reporting line for any suspicion of misuse. All reports are investigated by the board.</p>
+      </div>
+
+      <div class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="w-11 h-11 rounded-xl bg-hope/10 text-hope flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <h3 class="font-bold text-hope">Donor Privacy & Data</h3>
+        <p class="text-gray-600 text-sm mt-2">We never sell, share or rent donor data. Payments are processed by PCI-compliant providers.</p>
+      </div>
+
+      <div class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="w-11 h-11 rounded-xl bg-hope/10 text-hope flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-gavel"></i></div>
+        <h3 class="font-bold text-hope">Conflict of Interest</h3>
+        <p class="text-gray-600 text-sm mt-2">All board and staff declare interests annually. Related-party transactions require board approval.</p>
+      </div>
+
+      <div class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="w-11 h-11 rounded-xl bg-hope/10 text-hope flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-leaf"></i></div>
+        <h3 class="font-bold text-hope">Environmental Responsibility</h3>
+        <p class="text-gray-600 text-sm mt-2">We minimize waste, source locally, and teach sustainable practices to the children in our care.</p>
+      </div>
+
+      <div class="trust-card bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="w-11 h-11 rounded-xl bg-hope/10 text-hope flex items-center justify-center text-lg mb-4"><i class="fa-solid fa-people-group"></i></div>
+        <h3 class="font-bold text-hope">Community Participation</h3>
+        <p class="text-gray-600 text-sm mt-2">Local leaders, families and children help shape our programs. Nothing is designed in isolation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DONOR'S BILL OF RIGHTS ============ -->
+<section class="py-24 bg-hope text-white">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Our Promise to You</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl mt-3">The Donor's Bill of Rights</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="bg-white/5 border border-white/15 rounded-2xl p-6 flex items-start gap-4 fade-up">
+        <span class="w-10 h-10 rounded-full bg-sun text-hope-dark flex items-center justify-center shrink-0 font-bold">1</span>
+        <p class="text-white/90 text-sm">You have the right to know how your gift is used, and to receive regular updates on the children it supports.</p>
+      </div>
+      <div class="bg-white/5 border border-white/15 rounded-2xl p-6 flex items-start gap-4 fade-up">
+        <span class="w-10 h-10 rounded-full bg-sun text-hope-dark flex items-center justify-center shrink-0 font-bold">2</span>
+        <p class="text-white/90 text-sm">You have the right to ask any question about our finances, governance or programs — and get a real answer.</p>
+      </div>
+      <div class="bg-white/5 border border-white/15 rounded-2xl p-6 flex items-start gap-4 fade-up">
+        <span class="w-10 h-10 rounded-full bg-sun text-hope-dark flex items-center justify-center shrink-0 font-bold">3</span>
+        <p class="text-white/90 text-sm">You have the right to privacy. We never sell, trade or share your personal information.</p>
+      </div>
+      <div class="bg-white/5 border border-white/15 rounded-2xl p-6 flex items-start gap-4 fade-up">
+        <span class="w-10 h-10 rounded-full bg-sun text-hope-dark flex items-center justify-center shrink-0 font-bold">4</span>
+        <p class="text-white/90 text-sm">You have the right to expect professional, ethical conduct from every person representing our foundation.</p>
+      </div>
+      <div class="bg-white/5 border border-white/15 rounded-2xl p-6 flex items-start gap-4 fade-up">
+        <span class="w-10 h-10 rounded-full bg-sun text-hope-dark flex items-center justify-center shrink-0 font-bold">5</span>
+        <p class="text-white/90 text-sm">You have the right to cancel a recurring gift at any time, no questions asked.</p>
+      </div>
+      <div class="bg-white/5 border border-white/15 rounded-2xl p-6 flex items-start gap-4 fade-up">
+        <span class="w-10 h-10 rounded-full bg-sun text-hope-dark flex items-center justify-center shrink-0 font-bold">6</span>
+        <p class="text-white/90 text-sm">You have the right to be treated with respect, whether you give $5 or $50,000.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="py-24">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Transparency FAQ</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Questions Serious Donors Ask</h2>
+    </div>
+
+    <div class="space-y-4">
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Who audits your accounts, and how often?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Our accounts are independently audited once a year by a licensed audit firm with no relationship to our organization. The full audited statements are published on this page and can be downloaded at no cost.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          What percentage of my donation reaches the children?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">90% of every dollar goes directly to children's programs. The remaining 10% covers essential administration, accounting, audit and compliance. We keep overheads low through volunteer support and local partnerships.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Can I see a breakdown of specific expenses?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes — our audited financial statements include detailed line-item breakdowns. For specific questions, email us and we will respond within five business days.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          How do you protect the children's privacy?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">We follow strict child protection standards. Names, ages and identifiable details are changed or withheld where publication could put a child at risk. All photography is done with informed consent from guardians and, where appropriate, the children themselves.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          What happens if I have a concern about how funds are used?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Contact us immediately at +256 778 655 726 or email us. We also operate a confidential whistleblowing channel. Every concern is treated seriously and reviewed by the board.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Are you registered in Uganda?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes. We are registered with the Uganda NGO Board and compliant with the Ministry of Gender, Labour and Social Development. A copy of our registration certificate is available in the Reports Library above.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="relative py-24 text-white overflow-hidden">
+  <div class="absolute inset-0 bg-hope-dark"></div>
+  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 20% 20%, #F4B942 0, transparent 40%), radial-gradient(circle at 80% 80%, #F4B942 0, transparent 40%);"></div>
+
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+    <h2 class="font-display font-extrabold text-3xl md:text-4xl">Give with confidence.</h2>
+    <p class="text-white/80 mt-4">You've seen the numbers. You've seen the reports. Now meet the children your gift will change.</p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-8 py-4 rounded-full shadow-lg transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate Now
+      </a>
+      <a href="contact.html" class="bg-transparent border-2 border-white/60 hover:bg-white/10 font-bold px-8 py-4 rounded-full transition">
+        Ask Us Anything
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-hope-dark text-white/80">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div>
+          <p class="font-display font-extrabold text-white text-lg leading-none">Hope for Tomorrow</p>
+          <p class="text-[11px] uppercase tracking-widest text-white/60">Foundation · Uganda</p>
+        </div>
+      </div>
+      <p class="text-sm leading-relaxed">Empowering Uganda's most vulnerable children with education, nutrition, health and hope.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-sun transition">About Us</a></li>
+        <li><a href="programs.html" class="hover:text-sun transition">Our Programs</a></li>
+        <li><a href="stories.html" class="hover:text-sun transition">Children's Stories</a></li>
+        <li><a href="transparency.html" class="hover:text-sun transition">Transparency</a></li>
+        <li><a href="get-involved.html" class="hover:text-sun transition">Get Involved</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Documents</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#reports" class="hover:text-sun transition">Annual Report 2024</a></li>
+        <li><a href="#reports" class="hover:text-sun transition">Audited Accounts 2024</a></li>
+        <li><a href="#reports" class="hover:text-sun transition">Child Protection Policy</a></li>
+        <li><a href="#reports" class="hover:text-sun transition">NGO Registration</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Contact</h4>
+      <ul class="space-y-3 text-sm">
+        <li><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</li>
+        <li><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</li>
+        <li><i class="fa-solid fa-envelope mr-2 text-sun"></i>info@hopefortomorrow.org</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white/60">
+      © <span id="year"></span> Hope for Tomorrow Foundation. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="toTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-hope text-white shadow-lg hidden items-center justify-center hover:bg-hope-light transition z-40">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Fade-up
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+  // Animate bars
+  const barObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        el.style.width = el.dataset.width + '%';
+        barObs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('.bar-fill').forEach(el => barObs.observe(el));
+
+  // FAQ
+  document.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) { toTop.classList.remove('hidden'); toTop.classList.add('flex'); }
+    else { toTop.classList.add('hidden'); toTop.classList.remove('flex'); }
+  });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>
