@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Our Programs — Hope for Tomorrow Foundation | Education, Nutrition, Shelter, Mentorship in Uganda</title>
+<meta name="description" content="Discover the four core programs of Hope for Tomorrow Foundation in Uganda: Education, Nutrition & Health, Safe Shelter, and Mentorship & Skills for vulnerable children." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          hope:  { DEFAULT: '#0F5132', light: '#166a41', dark: '#0a3a24' },
+          sun:   { DEFAULT: '#F4B942', light: '#f7c96b', dark: '#d99a1f' },
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  .hero-overlay { background: linear-gradient(120deg, rgba(10,58,36,.9) 0%, rgba(15,81,50,.72) 60%, rgba(10,58,36,.5) 100%); }
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .step-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(15,81,50,.25); }
+  .step-card { transition: transform .35s ease, box-shadow .35s ease; }
+  .faq-item.open .faq-answer { max-height: 400px; padding-top: 1rem; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+</style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+<!-- ============ TOP BAR ============ -->
+<div class="bg-hope-dark text-white text-sm hidden md:block">
+  <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <span><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</span>
+      <span><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl font-bold shadow-md">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+      <div class="leading-tight">
+        <p class="font-display font-extrabold text-hope text-lg">Hope for Tomorrow</p>
+        <p class="text-[11px] uppercase tracking-widest text-gray-500">Foundation · Uganda</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-8 font-medium text-gray-700">
+      <li><a href="index.html" class="hover:text-hope transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-hope transition">About</a></li>
+      <li><a href="programs.html" class="text-hope font-semibold">Programs</a></li>
+      <li><a href="stories.html" class="hover:text-hope transition">Stories</a></li>
+      <li><a href="transparency.html" class="hover:text-hope transition">Transparency</a></li>
+      <li><a href="contact.html" class="hover:text-hope transition">Contact</a></li>
+    </ul>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="get-involved.html" class="text-hope font-semibold hover:text-hope-dark transition">Get Involved</a>
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-6 py-2.5 rounded-full shadow-md transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate
+      </a>
+    </div>
+
+    <button id="menuBtn" class="lg:hidden text-2xl text-hope"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 px-6 py-4">
+    <ul class="flex flex-col gap-4 font-medium text-gray-700">
+      <li><a href="index.html" class="block">Home</a></li>
+      <li><a href="about.html" class="block">About</a></li>
+      <li><a href="programs.html" class="block text-hope font-semibold">Programs</a></li>
+      <li><a href="stories.html" class="block">Stories</a></li>
+      <li><a href="transparency.html" class="block">Transparency</a></li>
+      <li><a href="get-involved.html" class="block">Get Involved</a></li>
+      <li><a href="contact.html" class="block">Contact</a></li>
+      <li><a href="donate.html" class="block bg-sun text-hope-dark font-bold text-center px-6 py-3 rounded-full">Donate</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative py-28 text-white overflow-hidden">
+  <img src="https://i.ibb.co/xtTNN0yH/Whats-App-Image-2026-09-30-at-19-55-29.jpg"
+       class="absolute inset-0 w-full h-full object-cover" alt="Hope for Tomorrow Programs">
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <nav class="text-sm text-white/70 mb-4">
+        <a href="index.html" class="hover:text-sun">Home</a>
+        <i class="fa-solid fa-chevron-right mx-2 text-xs"></i>
+        <span class="text-sun">Programs</span>
+      </nav>
+      <h1 class="font-display font-extrabold text-4xl md:text-6xl leading-tight">
+        Four pillars. <span class="text-sun">One future</span> for every child.
+      </h1>
+      <p class="mt-6 text-lg text-white/90 max-w-2xl leading-relaxed">
+        Hope doesn't come in a single act — it comes in meals shared, lessons taught, wounds
+        healed, and dreams nurtured. These are the four programs that walk with a child from
+        rescue to independence.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-3 text-sm">
+        <a href="#education" class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur px-4 py-2 rounded-full transition"><i class="fa-solid fa-book-open mr-2 text-sun"></i>Education</a>
+        <a href="#nutrition" class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur px-4 py-2 rounded-full transition"><i class="fa-solid fa-bowl-food mr-2 text-sun"></i>Nutrition & Health</a>
+        <a href="#shelter" class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur px-4 py-2 rounded-full transition"><i class="fa-solid fa-house-chimney mr-2 text-sun"></i>Safe Shelter</a>
+        <a href="#mentorship" class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur px-4 py-2 rounded-full transition"><i class="fa-solid fa-seedling mr-2 text-sun"></i>Mentorship & Skills</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OVERVIEW STRIP ============ -->
+<section class="bg-hope text-white">
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div class="fade-up">
+      <p class="counter text-4xl md:text-5xl font-display font-extrabold text-sun" data-target="500">0</p>
+      <p class="mt-2 text-sm uppercase tracking-widest text-white/80">Children in Programs</p>
+    </div>
+    <div class="fade-up">
+      <p class="counter text-4xl md:text-5xl font-display font-extrabold text-sun" data-target="4">0</p>
+      <p class="mt-2 text-sm uppercase tracking-widest text-white/80">Core Programs</p>
+    </div>
+    <div class="fade-up">
+      <p class="counter text-4xl md:text-5xl font-display font-extrabold text-sun" data-target="15">0</p>
+      <p class="mt-2 text-sm uppercase tracking-widest text-white/80">Partner Schools</p>
+    </div>
+    <div class="fade-up">
+      <p class="counter text-4xl md:text-5xl font-display font-extrabold text-sun" data-target="100">0</p>
+      <p class="mt-2 text-sm uppercase tracking-widest text-white/80">% to Children</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAM 1: EDUCATION ============ -->
+<section id="education" class="py-24 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="fade-up">
+      <span class="inline-flex items-center gap-2 bg-hope/10 text-hope font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full">
+        <i class="fa-solid fa-book-open"></i> Program 01
+      </span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-5 leading-tight">
+        Education — the key out of poverty.
+      </h2>
+      <p class="mt-6 text-gray-600 leading-relaxed">
+        Education is the single most powerful tool to break the cycle of generational poverty.
+        We enroll every child in our care into formal schooling — covering fees, uniforms,
+        books, meals and transport. But we don't stop at enrollment.
+      </p>
+      <p class="mt-4 text-gray-600 leading-relaxed">
+        We provide after-school tutoring, exam preparation, learning materials at home, and a
+        reading club every Saturday. Our team tracks each child's academic progress term by term
+        and intervenes early if a child is falling behind.
+      </p>
+
+      <div class="mt-8 grid grid-cols-2 gap-4">
+        <div class="bg-gray-50 rounded-xl p-5 border-l-4 border-hope">
+          <p class="font-display font-extrabold text-2xl text-hope">$120</p>
+          <p class="text-sm text-gray-600 mt-1">Funds a full year of school fees for one child</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-5 border-l-4 border-hope">
+          <p class="font-display font-extrabold text-2xl text-hope">$30</p>
+          <p class="text-sm text-gray-600 mt-1">Provides books, pens & uniform for a term</p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="donate.html" class="bg-hope hover:bg-hope-light text-white font-bold px-6 py-3 rounded-full transition shadow-md">
+          <i class="fa-solid fa-heart mr-2"></i>Fund This Program
+        </a>
+        <a href="stories.html" class="border-2 border-hope text-hope hover:bg-hope hover:text-white font-bold px-6 py-3 rounded-full transition">
+          See Student Stories
+        </a>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://i.ibb.co/xtTNN0yH/Whats-App-Image-2026-09-30-at-19-55-29.jpg" class="rounded-2xl shadow-lg h-72 w-full object-cover" alt="">
+        <img src="https://i.ibb.co/SDqWS34h/Whats-App-Image-2026-09-30-at-19-55-30.jpg" class="rounded-2xl shadow-lg h-72 w-full object-cover mt-8" alt="">
+        <img src="https://i.ibb.co/Cs4nKPHq/Whats-App-Image-2026-09-30-at-19-55-29-1.jpg" class="rounded-2xl shadow-lg h-56 w-full object-cover -mt-4" alt="">
+        <img src="https://i.ibb.co/vCTx9MvS/Whats-App-Image-2026-09-30-at-19-55-28.jpg" class="rounded-2xl shadow-lg h-56 w-full object-cover mt-4" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAM 2: NUTRITION & HEALTH ============ -->
+<section id="nutrition" class="py-24 bg-gray-50 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="fade-up order-2 lg:order-1">
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://i.ibb.co/vCTx9MvS/Whats-App-Image-2026-09-30-at-19-55-28.jpg" class="rounded-2xl shadow-lg h-72 w-full object-cover" alt="">
+        <img src="https://i.ibb.co/q3qxRTR6/Whats-App-Image-2026-09-30-at-19-55-29-2.jpg" class="rounded-2xl shadow-lg h-72 w-full object-cover mt-8" alt="">
+        <img src="https://i.ibb.co/q366XWG9/Whats-App-Image-2026-09-30-at-19-55-31.jpg" class="rounded-2xl shadow-lg h-56 w-full object-cover -mt-4" alt="">
+        <img src="https://i.ibb.co/SDqWS34h/Whats-App-Image-2026-09-30-at-19-55-30.jpg" class="rounded-2xl shadow-lg h-56 w-full object-cover mt-4" alt="">
+      </div>
+    </div>
+
+    <div class="fade-up order-1 lg:order-2">
+      <span class="inline-flex items-center gap-2 bg-hope/10 text-hope font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full">
+        <i class="fa-solid fa-bowl-food"></i> Program 02
+      </span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-5 leading-tight">
+        Nutrition & Health — because no child can learn hungry or sick.
+      </h2>
+      <p class="mt-6 text-gray-600 leading-relaxed">
+        Many of the children we rescue arrive malnourished, with untreated infections, and
+        without basic immunizations. Our first job is to stabilize their health — then keep
+        them thriving.
+      </p>
+      <p class="mt-4 text-gray-600 leading-relaxed">
+        Every child in our care receives <strong>three balanced meals a day</strong>, clean
+        drinking water, routine medical checkups, immunizations, deworming, and access to
+        treatment for malaria, infections and chronic conditions. We also run a monthly
+        community health clinic for families in Wakiso District.
+      </p>
+
+      <div class="mt-8 grid grid-cols-2 gap-4">
+        <div class="bg-white rounded-xl p-5 border-l-4 border-hope shadow-sm">
+          <p class="font-display font-extrabold text-2xl text-hope">$10</p>
+          <p class="text-sm text-gray-600 mt-1">Feeds a child for a whole week</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border-l-4 border-hope shadow-sm">
+          <p class="font-display font-extrabold text-2xl text-hope">$40</p>
+          <p class="text-sm text-gray-600 mt-1">Full medical checkup + treatment</p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="donate.html" class="bg-hope hover:bg-hope-light text-white font-bold px-6 py-3 rounded-full transition shadow-md">
+          <i class="fa-solid fa-heart mr-2"></i>Fund This Program
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAM 3: SAFE SHELTER ============ -->
+<section id="shelter" class="py-24 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="fade-up">
+      <span class="inline-flex items-center gap-2 bg-hope/10 text-hope font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full">
+        <i class="fa-solid fa-house-chimney"></i> Program 03
+      </span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-5 leading-tight">
+        Safe Shelter — a real home, not an institution.
+      </h2>
+      <p class="mt-6 text-gray-600 leading-relaxed">
+        For orphans, abandoned children and former street kids, our shelter is not just a
+        building — it is family. A place where they are known by name, tucked into bed at
+        night, listened to, and loved unconditionally.
+      </p>
+      <p class="mt-4 text-gray-600 leading-relaxed">
+        Our home in Wakiso District hosts children in a family-style environment with
+        <strong>house parents</strong> who live on-site. Every child has their own bed, clean
+        clothes, a study space, and access to counseling for the trauma they've endured.
+      </p>
+
+      <div class="mt-8 space-y-3">
+        <div class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-full bg-hope/10 text-hope flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-bed text-sm"></i></span>
+          <p class="text-gray-600 text-sm"><strong class="text-hope">A bed and a room</strong> — clean linens, mosquito nets, and a place to call their own.</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-full bg-hope/10 text-hope flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-user-nurse text-sm"></i></span>
+          <p class="text-gray-600 text-sm"><strong class="text-hope">House parents & caregivers</strong> — consistent, loving adults who act as family.</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="w-8 h-8 rounded-full bg-hope/10 text-hope flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-heart-pulse text-sm"></i></span>
+          <p class="text-gray-600 text-sm"><strong class="text-hope">Counseling & healing</strong> — trauma-informed support to help children recover and thrive.</p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid grid-cols-2 gap-4">
+        <div class="bg-gray-50 rounded-xl p-5 border-l-4 border-hope">
+          <p class="font-display font-extrabold text-2xl text-hope">$40</p>
+          <p class="text-sm text-gray-600 mt-1">Provides a month of food for one child</p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-5 border-l-4 border-hope">
+          <p class="font-display font-extrabold text-2xl text-hope">$200</p>
+          <p class="text-sm text-gray-600 mt-1">Houses, feeds & cares for 5 children</p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="donate.html" class="bg-hope hover:bg-hope-light text-white font-bold px-6 py-3 rounded-full transition shadow-md">
+          <i class="fa-solid fa-heart mr-2"></i>Fund This Program
+        </a>
+      </div>
+    </div>
+
+    <div class="fade-up">
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://i.ibb.co/q3qxRTR6/Whats-App-Image-2026-09-30-at-19-55-29-2.jpg" class="rounded-2xl shadow-lg h-72 w-full object-cover" alt="">
+        <img src="https://i.ibb.co/q366XWG9/Whats-App-Image-2026-09-30-at-19-55-31.jpg" class="rounded-2xl shadow-lg h-72 w-full object-cover mt-8" alt="">
+        <img src="https://i.ibb.co/SDqWS34h/Whats-App-Image-2026-09-30-at-19-55-30.jpg" class="rounded-2xl shadow-lg h-56 w-full object-cover -mt-4" alt="">
+        <img src="https://i.ibb.co/xtTNN0yH/Whats-App-Image-2026-09-30-at-19-55-29.jpg" class="rounded-2xl shadow-lg h-56 w-full object-cover mt-4" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROGRAM 4: MENTORSHIP & SKILLS ============ -->
+<section id="mentorship" class="py-24 bg-gray-50 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="fade-up order-2 lg:order-1">
+      <div class="grid grid-cols-2 gap-4">
+        <img src="https://i.ibb.co/Cs4nKPHq/Whats-App-Image-2026-09-30-at-19-55-29-1.jpg" class="rounded-2xl shadow-lg h-72 w-full object-cover" alt="">
+        <img src="https://i.ibb.co/vCTx9MvS/Whats-App-Image-2026-09-30-at-19-55-28.jpg" class="rounded-2xl shadow-lg h-72 w-full object-cover mt-8" alt="">
+        <img src="https://i.ibb.co/q366XWG9/Whats-App-Image-2026-09-30-at-19-55-31.jpg" class="rounded-2xl shadow-lg h-56 w-full object-cover -mt-4" alt="">
+        <img src="https://i.ibb.co/Cs4nKPHq/Whats-App-Image-2026-09-30-at-19-55-29-1.jpg" class="rounded-2xl shadow-lg h-56 w-full object-cover mt-4" alt="">
+      </div>
+    </div>
+
+    <div class="fade-up order-1 lg:order-2">
+      <span class="inline-flex items-center gap-2 bg-hope/10 text-hope font-bold text-xs uppercase tracking-widest px-4 py-2 rounded-full">
+        <i class="fa-solid fa-seedling"></i> Program 04
+      </span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-5 leading-tight">
+        Mentorship & Skills — preparing them to stand on their own.
+      </h2>
+      <p class="mt-6 text-gray-600 leading-relaxed">
+        Education is a launchpad — but real independence also requires life skills, confidence,
+        and vocational training. As our children grow into teenagers and young adults, we walk
+        with them into the next chapter.
+      </p>
+      <p class="mt-4 text-gray-600 leading-relaxed">
+        Our <strong>Mentorship & Skills Program</strong> pairs each older child with a mentor,
+        runs workshops on entrepreneurship, financial literacy and life skills, and provides
+        vocational training in tailoring, carpentry, hairdressing, computer skills and
+        agriculture — so they can earn a living and give back.
+      </p>
+
+      <div class="mt-8 grid grid-cols-2 gap-4">
+        <div class="bg-white rounded-xl p-5 border-l-4 border-hope shadow-sm">
+          <p class="font-display font-extrabold text-2xl text-hope">$80</p>
+          <p class="text-sm text-gray-600 mt-1">One year of mentorship for a teenager</p>
+        </div>
+        <div class="bg-white rounded-xl p-5 border-l-4 border-hope shadow-sm">
+          <p class="font-display font-extrabold text-2xl text-hope">$350</p>
+          <p class="text-sm text-gray-600 mt-1">Full vocational training for one youth</p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="donate.html" class="bg-hope hover:bg-hope-light text-white font-bold px-6 py-3 rounded-full transition shadow-md">
+          <i class="fa-solid fa-heart mr-2"></i>Fund This Program
+        </a>
+        <a href="get-involved.html" class="border-2 border-hope text-hope hover:bg-hope hover:text-white font-bold px-6 py-3 rounded-full transition">
+          Become a Mentor
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW WE WORK ============ -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Our Approach</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">How We Work</h2>
+      <p class="text-gray-600 mt-4">A child's journey from rescue to independence — step by step.</p>
+    </div>
+
+    <div class="grid md:grid-cols-4 gap-6">
+      <div class="step-card bg-white border-2 border-gray-100 rounded-2xl p-8 text-center fade-up">
+        <div class="w-16 h-16 mx-auto rounded-full bg-hope text-sun flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <span class="text-sun font-bold text-xs uppercase tracking-widest">Step 01</span>
+        <h3 class="font-display font-bold text-xl text-hope mt-2">Identify</h3>
+        <p class="text-gray-600 text-sm mt-3 leading-relaxed">Our team and community partners find children in crisis — orphans, street kids, abandoned and abused children.</p>
+      </div>
+
+      <div class="step-card bg-white border-2 border-gray-100 rounded-2xl p-8 text-center fade-up">
+        <div class="w-16 h-16 mx-auto rounded-full bg-hope text-sun flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <span class="text-sun font-bold text-xs uppercase tracking-widest">Step 02</span>
+        <h3 class="font-display font-bold text-xl text-hope mt-2">Rescue</h3>
+        <p class="text-gray-600 text-sm mt-3 leading-relaxed">We bring them into a safe home, provide immediate medical care, food, clothing and a warm bed.</p>
+      </div>
+
+      <div class="step-card bg-white border-2 border-gray-100 rounded-2xl p-8 text-center fade-up">
+        <div class="w-16 h-16 mx-auto rounded-full bg-hope text-sun flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-heart-pulse"></i></div>
+        <span class="text-sun font-bold text-xs uppercase tracking-widest">Step 03</span>
+        <h3 class="font-display font-bold text-xl text-hope mt-2">Restore</h3>
+        <p class="text-gray-600 text-sm mt-3 leading-relaxed">Enroll in school, provide counseling, nutrition, healthcare and consistent love to heal and grow.</p>
+      </div>
+
+      <div class="step-card bg-hope text-white rounded-2xl p-8 text-center shadow-xl fade-up">
+        <div class="w-16 h-16 mx-auto rounded-full bg-sun text-hope-dark flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-rocket"></i></div>
+        <span class="text-sun font-bold text-xs uppercase tracking-widest">Step 04</span>
+        <h3 class="font-display font-bold text-xl mt-2">Empower</h3>
+        <p class="text-white/80 text-sm mt-3 leading-relaxed">Mentorship, vocational training and life skills — so they leave us ready to stand on their own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUCCESS METRICS ============ -->
+<section class="py-24 bg-hope text-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Real Numbers, Real Impact</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl mt-3">What We've Achieved</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-white/5 border border-white/15 rounded-2xl p-8 fade-up">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-sun/20 text-sun flex items-center justify-center text-xl"><i class="fa-solid fa-graduation-cap"></i></div>
+          <p class="counter font-display font-extrabold text-4xl text-sun" data-target="95">0</p>
+        </div>
+        <p class="font-bold">% School Enrollment</p>
+        <p class="text-white/70 text-sm mt-2">Of children in our care are enrolled in formal education.</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/15 rounded-2xl p-8 fade-up">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-sun/20 text-sun flex items-center justify-center text-xl"><i class="fa-solid fa-utensils"></i></div>
+          <p class="counter font-display font-extrabold text-4xl text-sun" data-target="1200">0</p>
+        </div>
+        <p class="font-bold">Meals Served Monthly</p>
+        <p class="text-white/70 text-sm mt-2">Hot, nutritious meals to every child, every single day.</p>
+      </div>
+
+      <div class="bg-white/5 border border-white/15 rounded-2xl p-8 fade-up">
+        <div class="flex items-center gap-4 mb-4">
+          <div class="w-12 h-12 rounded-xl bg-sun/20 text-sun flex items-center justify-center text-xl"><i class="fa-solid fa-hospital-user"></i></div>
+          <p class="counter font-display font-extrabold text-4xl text-sun" data-target="100">0</p>
+        </div>
+        <p class="font-bold">% Medical Coverage</p>
+        <p class="text-white/70 text-sm mt-2">Every child has access to routine checkups and treatment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="py-24">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Program FAQ</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Common Questions</h2>
+    </div>
+
+    <div class="space-y-4">
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Can I direct my donation to a specific program?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Absolutely. On our donation page you can choose which program your gift supports — Education, Nutrition & Health, Shelter, or General. We honor donor intent and report back on how your gift was used.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          How long does a child stay in your programs?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">As long as they need us — often from early childhood through completion of secondary school or vocational training. Some remain connected as alumni and even become mentors to younger children.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          How do you measure success?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">School enrollment and completion rates, health outcomes, nutrition status, vocational certification, and long-term independence. We publish these metrics in our annual reports.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Can I visit the programs in Uganda?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes — we welcome donors and partners to visit our home and programs in Wakiso District. Call +256 778 655 726 to arrange a visit.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          What percentage of my donation goes to programs?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">90% goes directly to children's programs; 10% covers essential administration and reporting. We keep overheads low by relying on volunteer support and local partnerships.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="relative py-24 text-white overflow-hidden">
+  <div class="absolute inset-0 bg-hope-dark"></div>
+  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 20% 20%, #F4B942 0, transparent 40%), radial-gradient(circle at 80% 80%, #F4B942 0, transparent 40%);"></div>
+
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+    <h2 class="font-display font-extrabold text-3xl md:text-4xl">Pick a program. Change a life.</h2>
+    <p class="text-white/80 mt-4">Choose where your gift goes — and see exactly what it accomplishes.</p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-8 py-4 rounded-full shadow-lg transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate Now
+      </a>
+      <a href="contact.html" class="bg-transparent border-2 border-white/60 hover:bg-white/10 font-bold px-8 py-4 rounded-full transition">
+        Talk to Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-hope-dark text-white/80">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div>
+          <p class="font-display font-extrabold text-white text-lg leading-none">Hope for Tomorrow</p>
+          <p class="text-[11px] uppercase tracking-widest text-white/60">Foundation · Uganda</p>
+        </div>
+      </div>
+      <p class="text-sm leading-relaxed">Empowering Uganda's most vulnerable children with education, nutrition, health and hope.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-sun transition">About Us</a></li>
+        <li><a href="programs.html" class="hover:text-sun transition">Our Programs</a></li>
+        <li><a href="stories.html" class="hover:text-sun transition">Children's Stories</a></li>
+        <li><a href="transparency.html" class="hover:text-sun transition">Transparency</a></li>
+        <li><a href="get-involved.html" class="hover:text-sun transition">Get Involved</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Our Programs</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#education" class="hover:text-sun transition">Education</a></li>
+        <li><a href="#nutrition" class="hover:text-sun transition">Nutrition & Health</a></li>
+        <li><a href="#shelter" class="hover:text-sun transition">Safe Shelter</a></li>
+        <li><a href="#mentorship" class="hover:text-sun transition">Mentorship & Skills</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Contact</h4>
+      <ul class="space-y-3 text-sm">
+        <li><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</li>
+        <li><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</li>
+        <li><i class="fa-solid fa-envelope mr-2 text-sun"></i>info@hopefortomorrow.org</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white/60">
+      © <span id="year"></span> Hope for Tomorrow Foundation. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="toTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-hope text-white shadow-lg hidden items-center justify-center hover:bg-hope-light transition">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Animated counters
+  const counters = document.querySelectorAll('.counter');
+  const animateCounter = (el) => {
+    const target = +el.dataset.target;
+    const duration = 1800;
+    const start = performance.now();
+    const step = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target).toLocaleString() + (target >= 100 ? '+' : '');
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { animateCounter(e.target); counterObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObs.observe(c));
+
+  // Fade-up
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+  // FAQ
+  document.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) { toTop.classList.remove('hidden'); toTop.classList.add('flex'); }
+    else { toTop.classList.add('hidden'); toTop.classList.remove('flex'); }
+  });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+
+</body>
+</html>
