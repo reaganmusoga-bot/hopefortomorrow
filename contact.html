@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact Us — Hope for Tomorrow Foundation | Wakiso District, Uganda</title>
+<meta name="description" content="Get in touch with Hope for Tomorrow Foundation. Call +256 778 655 726, email us, visit our home in Wakiso District, or send us a message. We'd love to hear from you." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          hope:  { DEFAULT: '#0F5132', light: '#166a41', dark: '#0a3a24' },
+          sun:   { DEFAULT: '#F4B942', light: '#f7c96b', dark: '#d99a1f' },
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  .hero-overlay { background: linear-gradient(120deg, rgba(10,58,36,.9) 0%, rgba(15,81,50,.72) 60%, rgba(10,58,36,.5) 100%); }
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .contact-card { transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+  .contact-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(15,81,50,.25); border-color: #F4B942; }
+
+  .whatsapp-float {
+    position: fixed; bottom: 24px; left: 24px; z-index: 40;
+    width: 58px; height: 58px; border-radius: 9999px;
+    background: #25D366; color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 28px;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, .45);
+    transition: transform .25s ease;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); }
+  .whatsapp-float::after {
+    content: ''; position: absolute; inset: 0; border-radius: 9999px;
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, .55);
+    animation: waPulse 2.2s infinite;
+  }
+  @keyframes waPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37, 211, 102, .55); }
+    70%  { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  }
+
+  .faq-item.open .faq-answer { max-height: 400px; padding-top: 1rem; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* Custom form field focus ring */
+  .field:focus { border-color: #0F5132; box-shadow: 0 0 0 4px rgba(15,81,50,.1); }
+</style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+<!-- ============ TOP BAR ============ -->
+<div class="bg-hope-dark text-white text-sm hidden md:block">
+  <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <span><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</span>
+      <span><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl font-bold shadow-md">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+      <div class="leading-tight">
+        <p class="font-display font-extrabold text-hope text-lg">Hope for Tomorrow</p>
+        <p class="text-[11px] uppercase tracking-widest text-gray-500">Foundation · Uganda</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-8 font-medium text-gray-700">
+      <li><a href="index.html" class="hover:text-hope transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-hope transition">About</a></li>
+      <li><a href="programs.html" class="hover:text-hope transition">Programs</a></li>
+      <li><a href="stories.html" class="hover:text-hope transition">Stories</a></li>
+      <li><a href="transparency.html" class="hover:text-hope transition">Transparency</a></li>
+      <li><a href="contact.html" class="text-hope font-semibold">Contact</a></li>
+    </ul>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="get-involved.html" class="text-hope font-semibold hover:text-hope-dark transition">Get Involved</a>
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-6 py-2.5 rounded-full shadow-md transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate
+      </a>
+    </div>
+
+    <button id="menuBtn" class="lg:hidden text-2xl text-hope"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 px-6 py-4">
+    <ul class="flex flex-col gap-4 font-medium text-gray-700">
+      <li><a href="index.html" class="block">Home</a></li>
+      <li><a href="about.html" class="block">About</a></li>
+      <li><a href="programs.html" class="block">Programs</a></li>
+      <li><a href="stories.html" class="block">Stories</a></li>
+      <li><a href="transparency.html" class="block">Transparency</a></li>
+      <li><a href="get-involved.html" class="block">Get Involved</a></li>
+      <li><a href="contact.html" class="block text-hope font-semibold">Contact</a></li>
+      <li><a href="donate.html" class="block bg-sun text-hope-dark font-bold text-center px-6 py-3 rounded-full">Donate</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative py-24 text-white overflow-hidden">
+  <img src="https://i.ibb.co/q366XWG9/Whats-App-Image-2026-09-30-at-19-55-31.jpg"
+       class="absolute inset-0 w-full h-full object-cover" alt="Contact Hope for Tomorrow Foundation">
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 text-center">
+    <nav class="text-sm text-white/70 mb-4">
+      <a href="index.html" class="hover:text-sun">Home</a>
+      <i class="fa-solid fa-chevron-right mx-2 text-xs"></i>
+      <span class="text-sun">Contact</span>
+    </nav>
+    <h1 class="font-display font-extrabold text-4xl md:text-6xl leading-tight">
+      Let's <span class="text-sun">talk</span>.
+    </h1>
+    <p class="mt-6 text-lg text-white/90 max-w-2xl mx-auto">
+      Whether you're a donor, partner, volunteer or curious friend — we'd love to hear from you.
+      Reach out and someone from our team will respond within 24 hours.
+    </p>
+  </div>
+</section>
+
+<!-- ============ QUICK CONTACT CARDS ============ -->
+<section class="py-20 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-6">
+
+    <!-- Call card -->
+    <a href="tel:+256778655726" class="contact-card bg-white rounded-2xl p-8 border-2 border-gray-100 text-center block fade-up">
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-hope text-sun flex items-center justify-center text-2xl mb-5">
+        <i class="fa-solid fa-phone-volume"></i>
+      </div>
+      <h3 class="font-display font-bold text-xl text-hope">Call Us</h3>
+      <p class="text-gray-500 text-sm mt-2">Mon – Sat, 8am – 6pm (EAT)</p>
+      <p class="font-bold text-hope mt-4">+256 778 655 726</p>
+      <p class="text-xs text-sun-dark font-bold uppercase tracking-widest mt-3">Tap to Call <i class="fa-solid fa-arrow-right ml-1"></i></p>
+    </a>
+
+    <!-- Email card -->
+    <a href="mailto:info@hopefortomorrow.org" class="contact-card bg-white rounded-2xl p-8 border-2 border-gray-100 text-center block fade-up">
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-hope text-sun flex items-center justify-center text-2xl mb-5">
+        <i class="fa-solid fa-envelope-open-text"></i>
+      </div>
+      <h3 class="font-display font-bold text-xl text-hope">Email Us</h3>
+      <p class="text-gray-500 text-sm mt-2">We reply within 24 hours</p>
+      <p class="font-bold text-hope mt-4 break-all">info@hopefortomorrow.org</p>
+      <p class="text-xs text-sun-dark font-bold uppercase tracking-widest mt-3">Send Email <i class="fa-solid fa-arrow-right ml-1"></i></p>
+    </a>
+
+    <!-- Visit card -->
+    <a href="https://maps.google.com/?q=Wakiso+District+Uganda" target="_blank" class="contact-card bg-white rounded-2xl p-8 border-2 border-gray-100 text-center block fade-up">
+      <div class="w-16 h-16 mx-auto rounded-2xl bg-hope text-sun flex items-center justify-center text-2xl mb-5">
+        <i class="fa-solid fa-map-location-dot"></i>
+      </div>
+      <h3 class="font-display font-bold text-xl text-hope">Visit Us</h3>
+      <p class="text-gray-500 text-sm mt-2">We love visitors!</p>
+      <p class="font-bold text-hope mt-4">Wakiso District, Uganda</p>
+      <p class="text-xs text-sun-dark font-bold uppercase tracking-widest mt-3">Open in Maps <i class="fa-solid fa-arrow-right ml-1"></i></p>
+    </a>
+
+  </div>
+</section>
+
+<!-- ============ FORM + INFO ============ -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-5 gap-10">
+
+    <!-- FORM (3 cols) -->
+    <div class="lg:col-span-3 bg-white rounded-3xl border border-gray-100 shadow-xl p-8 md:p-10 fade-up">
+      <div class="mb-8">
+        <span class="text-sun font-bold uppercase tracking-widest text-sm">Send a Message</span>
+        <h2 class="font-display font-extrabold text-2xl md:text-3xl text-hope mt-2">How can we help?</h2>
+        <p class="text-gray-500 text-sm mt-2">Fill in the form and we'll get back to you within one business day.</p>
+      </div>
+
+      <form id="contactForm" class="space-y-5" onsubmit="handleSubmit(event)">
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="text-sm font-semibold text-gray-700 mb-2 block">Full Name *</label>
+            <input required type="text" placeholder="Your name" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition" />
+          </div>
+          <div>
+            <label class="text-sm font-semibold text-gray-700 mb-2 block">Email Address *</label>
+            <input required type="email" placeholder="you@email.com" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition" />
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-5">
+          <div>
+            <label class="text-sm font-semibold text-gray-700 mb-2 block">Phone (optional)</label>
+            <input type="tel" placeholder="+256 or international" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition" />
+          </div>
+          <div>
+            <label class="text-sm font-semibold text-gray-700 mb-2 block">Country</label>
+            <input type="text" placeholder="e.g. United Kingdom" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition" />
+          </div>
+        </div>
+
+        <div>
+          <label class="text-sm font-semibold text-gray-700 mb-2 block">I'm reaching out about *</label>
+          <select required class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition bg-white">
+            <option value="">Choose a topic…</option>
+            <option>Making a donation</option>
+            <option>Sponsoring a child</option>
+            <option>Volunteering</option>
+            <option>Partnership / Corporate giving</option>
+            <option>Visiting the foundation</option>
+            <option>Media & press</option>
+            <option>General question</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="text-sm font-semibold text-gray-700 mb-2 block">Your Message *</label>
+          <textarea required rows="6" placeholder="Tell us how we can help…" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition resize-none"></textarea>
+        </div>
+
+        <label class="flex items-start gap-3 text-sm text-gray-600">
+          <input type="checkbox" class="mt-1 w-4 h-4 accent-hope" required />
+          <span>I agree to be contacted by Hope for Tomorrow Foundation regarding my message.</span>
+        </label>
+
+        <button type="submit" class="w-full bg-hope hover:bg-hope-light text-white font-extrabold text-lg py-4 rounded-xl shadow-lg transition">
+          <i class="fa-solid fa-paper-plane mr-2"></i>Send Message
+        </button>
+
+        <p class="text-center text-xs text-gray-400 mt-2">
+          <i class="fa-solid fa-lock mr-1"></i> Your information is safe with us. We never share your details.
+        </p>
+      </form>
+
+      <!-- Success state (hidden) -->
+      <div id="successMsg" class="hidden text-center py-12">
+        <div class="w-20 h-20 mx-auto rounded-full bg-hope text-sun flex items-center justify-center text-4xl mb-6">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h3 class="font-display font-extrabold text-2xl text-hope">Message sent — thank you!</h3>
+        <p class="text-gray-600 mt-3">We've received your message and will reply within 24 hours. For urgent matters, call us at +256 778 655 726.</p>
+        <button onclick="resetForm()" class="mt-6 text-hope font-bold hover:text-hope-dark transition"><i class="fa-solid fa-rotate-left mr-2"></i>Send another message</button>
+      </div>
+    </div>
+
+    <!-- INFO PANEL (2 cols) -->
+    <div class="lg:col-span-2 space-y-6 fade-up">
+
+      <!-- Info card -->
+      <div class="bg-hope text-white rounded-3xl p-8 shadow-xl">
+        <h3 class="font-display font-extrabold text-xl mb-6">Direct Contact</h3>
+
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <span class="w-11 h-11 rounded-xl bg-sun/20 text-sun flex items-center justify-center shrink-0"><i class="fa-solid fa-phone"></i></span>
+            <div>
+              <p class="text-white/60 text-xs uppercase tracking-widest">Phone / WhatsApp</p>
+              <a href="tel:+256778655726" class="font-bold hover:text-sun transition block">+256 778 655 726</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="w-11 h-11 rounded-xl bg-sun/20 text-sun flex items-center justify-center shrink-0"><i class="fa-solid fa-envelope"></i></span>
+            <div>
+              <p class="text-white/60 text-xs uppercase tracking-widest">Email</p>
+              <a href="mailto:info@hopefortomorrow.org" class="font-bold hover:text-sun transition block break-all">info@hopefortomorrow.org</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="w-11 h-11 rounded-xl bg-sun/20 text-sun flex items-center justify-center shrink-0"><i class="fa-solid fa-location-dot"></i></span>
+            <div>
+              <p class="text-white/60 text-xs uppercase tracking-widest">Visit</p>
+              <p class="font-bold">Wakiso District, Uganda</p>
+              <p class="text-white/60 text-xs mt-1">Off Kampala – Entebbe Road</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4">
+            <span class="w-11 h-11 rounded-xl bg-sun/20 text-sun flex items-center justify-center shrink-0"><i class="fa-solid fa-clock"></i></span>
+            <div>
+              <p class="text-white/60 text-xs uppercase tracking-widest">Office Hours</p>
+              <p class="font-bold">Mon – Sat: 8:00 – 18:00</p>
+              <p class="text-white/60 text-xs mt-1">Sunday: Closed</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-white/15">
+          <p class="text-white/60 text-xs uppercase tracking-widest mb-3">Follow us</p>
+          <div class="flex gap-3">
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="w-10 h-10 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- WhatsApp CTA card -->
+      <a href="https://wa.me/256778655726" target="_blank" class="block bg-[#25D366] hover:bg-[#1fb857] text-white rounded-3xl p-8 shadow-xl transition">
+        <div class="flex items-center gap-5">
+          <span class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center text-3xl shrink-0"><i class="fa-brands fa-whatsapp"></i></span>
+          <div>
+            <p class="text-white/80 text-xs uppercase tracking-widest">Fastest way to reach us</p>
+            <p class="font-display font-bold text-xl">Chat on WhatsApp</p>
+            <p class="text-white/80 text-sm mt-1">Typically replies in minutes</p>
+          </div>
+        </div>
+      </a>
+
+      <!-- Support card -->
+      <div class="bg-sun/10 border-2 border-sun/30 rounded-3xl p-6">
+        <p class="text-sun-dark font-bold text-sm uppercase tracking-widest mb-2"><i class="fa-solid fa-headset mr-2"></i>Need a quicker answer?</p>
+        <p class="text-gray-700 text-sm">Check our frequently asked questions below — 9 out of 10 questions are answered instantly.</p>
+        <a href="#faq" class="inline-flex items-center gap-2 mt-4 text-hope font-bold hover:text-hope-dark transition text-sm">
+          Jump to FAQ <i class="fa-solid fa-arrow-down"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAP ============ -->
+<section class="py-24 bg-gray-50">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-12 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Find Us</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Visit Our Home in Wakiso</h2>
+      <p class="text-gray-600 mt-4">We're located in Wakiso District, easily reachable from Kampala and Entebbe International Airport.</p>
+    </div>
+
+    <div class="rounded-3xl overflow-hidden shadow-2xl border-4 border-white fade-up">
+      <iframe
+        src="https://www.google.com/maps?q=Wakiso+District+Uganda&output=embed"
+        width="100%" height="480" style="border:0;" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="text-center mt-8">
+      <a href="https://maps.google.com/?q=Wakiso+District+Uganda" target="_blank"
+         class="inline-flex items-center gap-2 bg-hope hover:bg-hope-light text-white font-bold px-6 py-3 rounded-full transition shadow-md">
+        <i class="fa-solid fa-diamond-turn-right"></i> Get Directions
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO TO REACH ============ -->
+<section class="py-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Direct Lines</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Who to Reach</h2>
+      <p class="text-gray-600 mt-4">Skip the queue — contact the right department directly.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Donations -->
+      <div class="bg-white border-2 border-gray-100 rounded-2xl p-7 fade-up hover:border-sun transition">
+        <div class="w-12 h-12 rounded-xl bg-hope text-sun flex items-center justify-center text-xl mb-5"><i class="fa-solid fa-hand-holding-dollar"></i></div>
+        <h3 class="font-display font-bold text-lg text-hope">Donations & Giving</h3>
+        <p class="text-gray-500 text-sm mt-2">Questions about donating, receipts, sponsorship or tax.</p>
+        <div class="mt-5 space-y-2 text-sm">
+          <p><i class="fa-solid fa-envelope text-sun-dark mr-2"></i><span class="text-gray-600">donations@hopefortomorrow.org</span></p>
+          <p><i class="fa-solid fa-phone text-sun-dark mr-2"></i><span class="text-gray-600">+256 778 655 726</span></p>
+        </div>
+      </div>
+
+      <!-- Partnerships -->
+      <div class="bg-white border-2 border-gray-100 rounded-2xl p-7 fade-up hover:border-sun transition">
+        <div class="w-12 h-12 rounded-xl bg-hope text-sun flex items-center justify-center text-xl mb-5"><i class="fa-solid fa-handshake"></i></div>
+        <h3 class="font-display font-bold text-lg text-hope">Partnerships</h3>
+        <p class="text-gray-500 text-sm mt-2">Corporate giving, CSR programs and institutional partnerships.</p>
+        <div class="mt-5 space-y-2 text-sm">
+          <p><i class="fa-solid fa-envelope text-sun-dark mr-2"></i><span class="text-gray-600">partners@hopefortomorrow.org</span></p>
+          <p><i class="fa-solid fa-phone text-sun-dark mr-2"></i><span class="text-gray-600">+256 778 655 726</span></p>
+        </div>
+      </div>
+
+      <!-- Media & Press -->
+      <div class="bg-white border-2 border-gray-100 rounded-2xl p-7 fade-up hover:border-sun transition">
+        <div class="w-12 h-12 rounded-xl bg-hope text-sun flex items-center justify-center text-xl mb-5"><i class="fa-solid fa-bullhorn"></i></div>
+        <h3 class="font-display font-bold text-lg text-hope">Media & Press</h3>
+        <p class="text-gray-500 text-sm mt-2">Interviews, stories, photos and press inquiries.</p>
+        <div class="mt-5 space-y-2 text-sm">
+          <p><i class="fa-solid fa-envelope text-sun-dark mr-2"></i><span class="text-gray-600">press@hopefortomorrow.org</span></p>
+          <p><i class="fa-solid fa-phone text-sun-dark mr-2"></i><span class="text-gray-600">+256 778 655 726</span></p>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-gray-400 text-sm mt-10">
+      <i class="fa-solid fa-circle-info mr-1"></i>Replace department emails with real ones when ready — placeholders shown.
+    </p>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="py-24 bg-gray-50 scroll-mt-24">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Before You Write</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Quick Answers</h2>
+    </div>
+
+    <div class="space-y-4">
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          How quickly do you reply to messages?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">We aim to reply to every message within 24 hours on weekdays. WhatsApp is usually the fastest — often within minutes during working hours (Mon–Sat, 8am–6pm EAT).</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Can I visit the children in person?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes, we welcome visitors! For the safety of the children, all visits are arranged in advance. Please call +256 778 655 726 or email us at least one week before your planned visit.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          I sent a donation but didn't receive a receipt — what now?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Email donations@hopefortomorrow.org with the date and amount of your gift, and we'll resend your receipt immediately. Please check your spam folder first — receipts sometimes land there.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Are you a registered NGO?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes. Hope for Tomorrow Foundation is a registered non-governmental organization in Uganda. Our registration documents and annual reports are available on our Transparency page.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Do you accept in-kind donations (clothes, books, etc.)?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes — we gratefully accept books, school supplies, clothing, shoes and non-perishable food. Please contact us first so we can advise on what is most needed and coordinate drop-off or shipping.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Can I volunteer remotely from abroad?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Absolutely. We need remote volunteers for grant writing, social media, translation, design, web development and fundraising. Visit our Get Involved page or email us to discuss how you can help from anywhere in the world.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="relative py-24 text-white overflow-hidden">
+  <div class="absolute inset-0 bg-hope-dark"></div>
+  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 20% 20%, #F4B942 0, transparent 40%), radial-gradient(circle at 80% 80%, #F4B942 0, transparent 40%);"></div>
+
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+    <h2 class="font-display font-extrabold text-3xl md:text-4xl">Ready to make a difference?</h2>
+    <p class="text-white/80 mt-4">You've reached the contact page — one step away from changing a child's life.</p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-8 py-4 rounded-full shadow-lg transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate Now
+      </a>
+      <a href="get-involved.html" class="bg-transparent border-2 border-white/60 hover:bg-white/10 font-bold px-8 py-4 rounded-full transition">
+        Get Involved
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-hope-dark text-white/80">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div>
+          <p class="font-display font-extrabold text-white text-lg leading-none">Hope for Tomorrow</p>
+          <p class="text-[11px] uppercase tracking-widest text-white/60">Foundation · Uganda</p>
+        </div>
+      </div>
+      <p class="text-sm leading-relaxed">Empowering Uganda's most vulnerable children with education, nutrition, health and hope.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-sun transition">About Us</a></li>
+        <li><a href="programs.html" class="hover:text-sun transition">Our Programs</a></li>
+        <li><a href="stories.html" class="hover:text-sun transition">Children's Stories</a></li>
+        <li><a href="transparency.html" class="hover:text-sun transition">Transparency</a></li>
+        <li><a href="get-involved.html" class="hover:text-sun transition">Get Involved</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Support</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="donate.html" class="hover:text-sun transition">Donate</a></li>
+        <li><a href="get-involved.html" class="hover:text-sun transition">Sponsor a Child</a></li>
+        <li><a href="get-involved.html" class="hover:text-sun transition">Volunteer</a></li>
+        <li><a href="contact.html" class="hover:text-sun transition">Contact</a></li>
+        <li><a href="privacy.html" class="hover:text-sun transition">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Contact</h4>
+      <ul class="space-y-3 text-sm">
+        <li><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</li>
+        <li><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</li>
+        <li><i class="fa-solid fa-envelope mr-2 text-sun"></i>info@hopefortomorrow.org</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white/60">
+      © <span id="year"></span> Hope for Tomorrow Foundation. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a href="https://wa.me/256778655726" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- Back to top -->
+<button id="toTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-hope text-white shadow-lg hidden items-center justify-center hover:bg-hope-light transition z-40">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Fade
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+  // FAQ
+  document.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) { toTop.classList.remove('hidden'); toTop.classList.add('flex'); }
+    else { toTop.classList.add('hidden'); toTop.classList.remove('flex'); }
+  });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('contactForm').classList.add('hidden');
+    document.getElementById('successMsg').classList.remove('hidden');
+    document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // [HOOK] Connect to backend / Formspree / Netlify Forms here
+  }
+  function resetForm() {
+    document.getElementById('contactForm').reset();
+    document.getElementById('contactForm').classList.remove('hidden');
+    document.getElementById('successMsg').classList.add('hidden');
+  }
+</script>
+
+</body>
+</html>
