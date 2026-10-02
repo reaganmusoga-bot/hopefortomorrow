@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Terms of Use — Hope for Tomorrow Foundation</title>
+<meta name="description" content="Terms of Use for Hope for Tomorrow Foundation. The rules and conditions governing use of our website and services." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          hope:  { DEFAULT: '#0F5132', light: '#166a41', dark: '#0a3a24' },
+          sun:   { DEFAULT: '#F4B942', light: '#f7c96b', dark: '#d99a1f' },
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  .hero-overlay { background: linear-gradient(120deg, rgba(10,58,36,.94) 0%, rgba(15,81,50,.82) 60%, rgba(10,58,36,.6) 100%); }
+  .legal-body h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    color: #0F5132;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    scroll-margin-top: 100px;
+  }
+  .legal-body h3 {
+    font-weight: 700;
+    color: #0a3a24;
+    font-size: 1.1rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+  .legal-body p, .legal-body li {
+    color: #4b5563;
+    line-height: 1.75;
+    margin-bottom: 0.9rem;
+  }
+  .legal-body ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .legal-body ul li {
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .legal-body ul li::before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #F4B942;
+    position: absolute;
+    left: 0;
+    top: 0.15rem;
+    font-size: 0.75rem;
+  }
+  .toc-link.active {
+    background: #0F5132;
+    color: white !important;
+  }
+  .toc-link {
+    transition: all .2s ease;
+  }
+  .toc-link:hover {
+    background: rgba(15,81,50,.08);
+    color: #0F5132;
+  }
+</style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+<!-- ============ TOP BAR ============ -->
+<div class="bg-hope-dark text-white text-sm hidden md:block">
+  <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <span><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</span>
+      <span><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl font-bold shadow-md">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+      <div class="leading-tight">
+        <p class="font-display font-extrabold text-hope text-lg">Hope for Tomorrow</p>
+        <p class="text-[11px] uppercase tracking-widest text-gray-500">Foundation · Uganda</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-8 font-medium text-gray-700">
+      <li><a href="index.html" class="hover:text-hope transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-hope transition">About</a></li>
+      <li><a href="programs.html" class="hover:text-hope transition">Programs</a></li>
+      <li><a href="stories.html" class="hover:text-hope transition">Stories</a></li>
+      <li><a href="transparency.html" class="hover:text-hope transition">Transparency</a></li>
+      <li><a href="contact.html" class="hover:text-hope transition">Contact</a></li>
+    </ul>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="get-involved.html" class="text-hope font-semibold hover:text-hope-dark transition">Get Involved</a>
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-6 py-2.5 rounded-full shadow-md transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate
+      </a>
+    </div>
+
+    <button id="menuBtn" class="lg:hidden text-2xl text-hope"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 px-6 py-4">
+    <ul class="flex flex-col gap-4 font-medium text-gray-700">
+      <li><a href="index.html" class="block">Home</a></li>
+      <li><a href="about.html" class="block">About</a></li>
+      <li><a href="programs.html" class="block">Programs</a></li>
+      <li><a href="stories.html" class="block">Stories</a></li>
+      <li><a href="transparency.html" class="block">Transparency</a></li>
+      <li><a href="get-involved.html" class="block">Get Involved</a></li>
+      <li><a href="contact.html" class="block">Contact</a></li>
+      <li><a href="donate.html" class="block bg-sun text-hope-dark font-bold text-center px-6 py-3 rounded-full">Donate</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative py-20 text-white overflow-hidden">
+  <img src="https://i.ibb.co/q3qxRTR6/Whats-App-Image-2026-09-30-at-19-55-29-2.jpg"
+       class="absolute inset-0 w-full h-full object-cover" alt="Terms of Use">
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    <nav class="text-sm text-white/70 mb-4">
+      <a href="index.html" class="hover:text-sun">Home</a>
+      <i class="fa-solid fa-chevron-right mx-2 text-xs"></i>
+      <span class="text-sun">Terms of Use</span>
+    </nav>
+    <h1 class="font-display font-extrabold text-4xl md:text-5xl leading-tight">
+      Terms of Use
+    </h1>
+    <p class="mt-4 text-white/80 text-sm">
+      <i class="fa-solid fa-calendar mr-2"></i>Last updated: <span class="font-bold">1 January 2025</span>
+      &nbsp;·&nbsp;
+      <i class="fa-solid fa-file-contract mr-2"></i>Effective: 1 January 2025
+    </p>
+  </div>
+</section>
+
+<!-- ============ INTRO ============ -->
+<section class="py-12 bg-sun/10 border-b border-sun/30">
+  <div class="max-w-5xl mx-auto px-6 flex items-start gap-4">
+    <div class="w-12 h-12 rounded-full bg-sun text-hope-dark flex items-center justify-center shrink-0"><i class="fa-solid fa-scale-balanced text-lg"></i></div>
+    <div>
+      <p class="font-bold text-hope">Please read these terms carefully.</p>
+      <p class="text-gray-700 text-sm mt-1">By using our website or donating to Hope for Tomorrow Foundation, you agree to these Terms of Use. If you do not agree, please do not use our website.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BODY ============ -->
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-4 gap-12">
+
+    <!-- Sidebar TOC -->
+    <aside class="lg:col-span-1 hidden lg:block">
+      <div class="sticky top-28">
+        <p class="text-xs uppercase tracking-widest font-bold text-gray-400 mb-4">On This Page</p>
+        <nav class="space-y-1 text-sm">
+          <a href="#acceptance" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">1. Acceptance</a>
+          <a href="#about-us" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">2. About Us</a>
+          <a href="#use" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">3. Permitted Use</a>
+          <a href="#prohibited" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">4. Prohibited Use</a>
+          <a href="#donations" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">5. Donations</a>
+          <a href="#refunds" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">6. Refunds</a>
+          <a href="#sponsorship" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">7. Sponsorship</a>
+          <a href="#ip" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">8. Intellectual Property</a>
+          <a href="#thirdparty" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">9. Third-Party Links</a>
+          <a href="#disclaimer" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">10. Disclaimer</a>
+          <a href="#liability" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">11. Liability</a>
+          <a href="#indemnity" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">12. Indemnity</a>
+          <a href="#law" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">13. Governing Law</a>
+          <a href="#changes" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">14. Changes</a>
+          <a href="#contact" class="toc-link block px-4 py-2 rounded-lg text-gray-600 font-medium">15. Contact</a>
+        </nav>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <div class="lg:col-span-3 legal-body">
+
+      <div id="acceptance">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By accessing or using the Hope for Tomorrow Foundation website ("Site"), making a donation, applying to volunteer, subscribing to our newsletter, or otherwise interacting with us, you agree to be bound by these Terms of Use ("Terms") and our Privacy Policy.</p>
+        <p>If you do not agree with any part of these Terms, please discontinue use of the Site immediately.</p>
+      </div>
+
+      <div id="about-us">
+        <h2>2. About Us</h2>
+        <p><strong>Hope for Tomorrow Foundation</strong> is a registered non-governmental organisation in Uganda, dedicated to supporting vulnerable children through education, nutrition, healthcare and shelter.</p>
+        <p><strong>Registered Address:</strong> Wakiso District, Uganda<br>
+        <strong>NGO Registration Number:</strong> [XXXXX]<br>
+        <strong>Email:</strong> info@hopefortomorrow.org<br>
+        <strong>Phone:</strong> +256 778 655 726</p>
+      </div>
+
+      <div id="use">
+        <h2>3. Permitted Use</h2>
+        <p>You may use this Site for lawful purposes only, including:</p>
+        <ul>
+          <li>Learning about our mission, programs, and impact</li>
+          <li>Making donations or sponsoring a child</li>
+          <li>Applying to volunteer with us</li>
+          <li>Contacting us with inquiries, feedback or partnership proposals</li>
+          <li>Sharing our content on social media (with proper attribution and linking back to our Site)</li>
+        </ul>
+      </div>
+
+      <div id="prohibited">
+        <h2>4. Prohibited Use</h2>
+        <p>You agree <strong>not</strong> to:</p>
+        <ul>
+          <li>Use the Site for any unlawful, fraudulent or misleading purpose</li>
+          <li>Attempt to gain unauthorised access to any part of the Site, its servers, or systems</li>
+          <li>Introduce viruses, malware, or any code designed to disrupt or damage the Site</li>
+          <li>Scrape, harvest, or copy data from the Site without written permission</li>
+          <li>Impersonate Hope for Tomorrow Foundation, its staff, volunteers, or any child</li>
+          <li>Use our name, logo, or branding to collect funds or represent us without written authorisation</li>
+          <li>Post, upload, or transmit any content that is defamatory, abusive, threatening, obscene, or harmful</li>
+          <li>Interfere with or disrupt the integrity or performance of the Site</li>
+        </ul>
+        <p>Violation of these terms may result in legal action and termination of access.</p>
+      </div>
+
+      <div id="donations">
+        <h2>5. Donations</h2>
+        <p>When you make a donation through our Site:</p>
+        <ul>
+          <li>You confirm the payment method used is yours, or you have authorisation to use it</li>
+          <li>All donations are voluntary and non-refundable except as set out in Section 6</li>
+          <li>We will use donations in accordance with the purpose you selected (where applicable) or, if unrestricted, where the need is greatest</li>
+          <li>We are a registered NGO in Uganda. Donations may be tax-deductible in your jurisdiction — please consult a tax professional</li>
+          <li>Where required by law, we may need to verify your identity for anti-money-laundering and counter-terrorism financing compliance</li>
+        </ul>
+        <p>We reserve the right to refuse or return any donation at our discretion — for example, where a donation appears fraudulent or inconsistent with our mission or values.</p>
+      </div>
+
+      <div id="refunds">
+        <h2>6. Refund Policy</h2>
+        <p>Donations are <strong>generally non-refundable</strong>. However, we will consider refund requests in the following circumstances:</p>
+        <ul>
+          <li><strong>Duplicate payment</strong> — you were accidentally charged twice</li>
+          <li><strong>Unauthorised transaction</strong> — your payment method was used without your consent</li>
+          <li><strong>Clear error</strong> — you made a mistake in the amount and notify us within 7 days</li>
+        </ul>
+        <p>To request a refund, email <strong>donations@hopefortomorrow.org</strong> within 14 days of the donation, with the transaction reference and reason. We will respond within 5 business days.</p>
+        <p>Monthly recurring gifts can be cancelled at any time — no refund is applicable for periods already processed.</p>
+      </div>
+
+      <div id="sponsorship">
+        <h2>7. Child Sponsorship</h2>
+        <p>When you sponsor a child through us:</p>
+        <ul>
+          <li>You are supporting a child's education, nutrition, healthcare and shelter — not purchasing a service</li>
+          <li>You will receive regular updates, but we reserve the right to change the frequency and format</li>
+          <li>Communications with a sponsored child are moderated by our staff to protect the child's safety and dignity</li>
+          <li>You agree not to attempt to contact a sponsored child outside our moderated channels or to publish their identity publicly</li>
+          <li>If a child leaves our program for any reason (reunification with family, relocation, etc.), your sponsorship will be reassigned to another child in need — you will be informed promptly</li>
+        </ul>
+      </div>
+
+      <div id="ip">
+        <h2>8. Intellectual Property</h2>
+        <p>All content on this Site — including text, images, logos, graphics, videos, and design — is owned by Hope for Tomorrow Foundation or used under licence, and is protected by copyright and other intellectual property laws.</p>
+        <p>You may:</p>
+        <ul>
+          <li>Share links to our Site</li>
+          <li>Reproduce short excerpts with clear attribution and a link back to us</li>
+          <li>Share our public posts and updates on social media</li>
+        </ul>
+        <p>You may <strong>not</strong>:</p>
+        <ul>
+          <li>Copy, reproduce, or republish substantial portions of our content without written permission</li>
+          <li>Use our logo, name, or branding for fundraising or commercial purposes without written authorisation</li>
+          <li>Alter, edit, or misrepresent photographs of children in any way</li>
+        </ul>
+      </div>
+
+      <div id="thirdparty">
+        <h2>9. Third-Party Links & Services</h2>
+        <p>Our Site may contain links to third-party websites (e.g. payment processors, social media, partner organisations). We do not control these websites and are not responsible for their content, privacy practices, or terms.</p>
+        <p>Inclusion of any third-party link does not imply our endorsement. Use third-party sites at your own risk and review their terms and privacy policies before use.</p>
+      </div>
+
+      <div id="disclaimer">
+        <h2>10. Disclaimer</h2>
+        <p>Our Site and its content are provided "as is" and "as available" without warranties of any kind, express or implied. While we make every effort to keep information accurate and up to date:</p>
+        <ul>
+          <li>We do not warrant the Site will be uninterrupted, error-free, or free of viruses</li>
+          <li>We do not warrant the accuracy, completeness, or usefulness of any information on the Site</li>
+          <li>Any reliance you place on the Site's content is strictly at your own risk</li>
+        </ul>
+        <p>Nothing on this Site constitutes legal, financial, or tax advice. Consult a qualified professional for advice specific to your situation.</p>
+      </div>
+
+      <div id="liability">
+        <h2>11. Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, Hope for Tomorrow Foundation, its trustees, staff, volunteers and partners shall not be liable for any indirect, incidental, special, or consequential damages arising from:</p>
+        <ul>
+          <li>Your use of, or inability to use, the Site</li>
+          <li>Any errors or omissions in the Site's content</li>
+          <li>Any unauthorised access to your data caused by circumstances beyond our reasonable control</li>
+          <li>Any content on third-party sites linked from our Site</li>
+        </ul>
+        <p>Our total liability to you for any claim shall not exceed the amount of any donation you have made to us in the 12 months preceding the claim.</p>
+      </div>
+
+      <div id="indemnity">
+        <h2>12. Indemnity</h2>
+        <p>You agree to indemnify and hold harmless Hope for Tomorrow Foundation, its trustees, staff, volunteers and partners from any claims, losses, damages, liabilities or expenses arising from:</p>
+        <ul>
+          <li>Your breach of these Terms</li>
+          <li>Your misuse of the Site</li>
+          <li>Your violation of any law or third-party right</li>
+        </ul>
+      </div>
+
+      <div id="law">
+        <h2>13. Governing Law & Dispute Resolution</h2>
+        <p>These Terms are governed by the laws of the Republic of Uganda. Any dispute arising from your use of the Site shall be subject to the exclusive jurisdiction of the courts of Uganda.</p>
+        <p>Before pursuing formal legal action, we ask that you contact us first at info@hopefortomorrow.org so we can attempt to resolve any issue amicably and in good faith.</p>
+      </div>
+
+      <div id="changes">
+        <h2>14. Changes to These Terms</h2>
+        <p>We may update these Terms from time to time. When we do, we will update the "Last updated" date at the top of this page. Continued use of our Site after changes constitutes acceptance of the revised Terms.</p>
+        <p>For material changes, we will notify newsletter subscribers by email.</p>
+      </div>
+
+      <div id="contact">
+        <h2>15. Contact Us</h2>
+        <p>If you have any questions about these Terms, please contact us:</p>
+        <div class="bg-gray-50 rounded-2xl p-6 mt-4 border-l-4 border-hope">
+          <p class="text-gray-700"><strong>Hope for Tomorrow Foundation</strong><br>
+          Wakiso District, Uganda<br>
+          <i class="fa-solid fa-envelope mr-2 text-hope mt-2"></i>info@hopefortomorrow.org<br>
+          <i class="fa-solid fa-phone mr-2 text-hope"></i>+256 778 655 726</p>
+        </div>
+      </div>
+
+      <p class="text-gray-400 text-sm mt-12 italic">This document is provided for informational purposes. For specific legal advice, please consult a qualified lawyer in your jurisdiction.</p>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-hope-dark text-white/80">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div>
+          <p class="font-display font-extrabold text-white text-lg leading-none">Hope for Tomorrow</p>
+          <p class="text-[11px] uppercase tracking-widest text-white/60">Foundation · Uganda</p>
+        </div>
+      </div>
+      <p class="text-sm leading-relaxed">Empowering Uganda's most vulnerable children with education, nutrition, health and hope.</p>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-sun transition">About Us</a></li>
+        <li><a href="programs.html" class="hover:text-sun transition">Our Programs</a></li>
+        <li><a href="stories.html" class="hover:text-sun transition">Stories</a></li>
+        <li><a href="transparency.html" class="hover:text-sun transition">Transparency</a></li>
+        <li><a href="get-involved.html" class="hover:text-sun transition">Get Involved</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Legal</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="privacy.html" class="hover:text-sun transition">Privacy Policy</a></li>
+        <li><a href="terms.html" class="hover:text-sun transition">Terms of Use</a></li>
+        <li><a href="transparency.html" class="hover:text-sun transition">Transparency</a></li>
+        <li><a href="#" class="hover:text-sun transition">Child Protection Policy</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Contact</h4>
+      <ul class="space-y-3 text-sm">
+        <li><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</li>
+        <li><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</li>
+        <li><i class="fa-solid fa-envelope mr-2 text-sun"></i>info@hopefortomorrow.org</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white/60">
+      © <span id="year"></span> Hope for Tomorrow Foundation. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // TOC active state
+  const sections = document.querySelectorAll('.legal-body > div[id]');
+  const tocLinks = document.querySelectorAll('.toc-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 150) current = s.id;
+    });
+    tocLinks.forEach(l => {
+      l.classList.remove('active');
+      if (l.getAttribute('href') === '#' + current) l.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
