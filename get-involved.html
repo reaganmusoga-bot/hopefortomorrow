@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Get Involved — Hope for Tomorrow Foundation | Volunteer, Sponsor, Partner</title>
+<meta name="description" content="Join Hope for Tomorrow Foundation. Sponsor a child, volunteer remotely or in Uganda, fundraise, partner with us, or donate in-kind. Every act of kindness changes a child's life." />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          hope:  { DEFAULT: '#0F5132', light: '#166a41', dark: '#0a3a24' },
+          sun:   { DEFAULT: '#F4B942', light: '#f7c96b', dark: '#d99a1f' },
+        },
+        fontFamily: {
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+          display: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+        },
+      },
+    },
+  };
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  html { scroll-behavior: smooth; }
+  .hero-overlay { background: linear-gradient(120deg, rgba(10,58,36,.92) 0%, rgba(15,81,50,.75) 60%, rgba(10,58,36,.55) 100%); }
+  .fade-up { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s ease; }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+  .way-card { transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease; }
+  .way-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px -14px rgba(15,81,50,.3); border-color: #F4B942; }
+  .faq-item.open .faq-answer { max-height: 400px; padding-top: 1rem; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+  .field:focus { border-color: #0F5132; box-shadow: 0 0 0 4px rgba(15,81,50,.1); }
+  .tier-card { transition: transform .35s ease, box-shadow .35s ease; }
+  .tier-card:hover { transform: translateY(-6px); box-shadow: 0 22px 44px -14px rgba(15,81,50,.28); }
+</style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white antialiased">
+
+<!-- ============ TOP BAR ============ -->
+<div class="bg-hope-dark text-white text-sm hidden md:block">
+  <div class="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center">
+    <div class="flex items-center gap-6">
+      <span><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</span>
+      <span><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-x-twitter"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="hover:text-sun transition"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAVBAR ============ -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3">
+      <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl font-bold shadow-md">
+        <i class="fa-solid fa-hand-holding-heart"></i>
+      </div>
+      <div class="leading-tight">
+        <p class="font-display font-extrabold text-hope text-lg">Hope for Tomorrow</p>
+        <p class="text-[11px] uppercase tracking-widest text-gray-500">Foundation · Uganda</p>
+      </div>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-8 font-medium text-gray-700">
+      <li><a href="index.html" class="hover:text-hope transition">Home</a></li>
+      <li><a href="about.html" class="hover:text-hope transition">About</a></li>
+      <li><a href="programs.html" class="hover:text-hope transition">Programs</a></li>
+      <li><a href="stories.html" class="hover:text-hope transition">Stories</a></li>
+      <li><a href="transparency.html" class="hover:text-hope transition">Transparency</a></li>
+      <li><a href="contact.html" class="hover:text-hope transition">Contact</a></li>
+    </ul>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <a href="get-involved.html" class="text-hope font-semibold">Get Involved</a>
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-6 py-2.5 rounded-full shadow-md transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate
+      </a>
+    </div>
+
+    <button id="menuBtn" class="lg:hidden text-2xl text-hope"><i class="fa-solid fa-bars"></i></button>
+  </nav>
+
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 px-6 py-4">
+    <ul class="flex flex-col gap-4 font-medium text-gray-700">
+      <li><a href="index.html" class="block">Home</a></li>
+      <li><a href="about.html" class="block">About</a></li>
+      <li><a href="programs.html" class="block">Programs</a></li>
+      <li><a href="stories.html" class="block">Stories</a></li>
+      <li><a href="transparency.html" class="block">Transparency</a></li>
+      <li><a href="get-involved.html" class="block text-hope font-semibold">Get Involved</a></li>
+      <li><a href="contact.html" class="block">Contact</a></li>
+      <li><a href="donate.html" class="block bg-sun text-hope-dark font-bold text-center px-6 py-3 rounded-full">Donate</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="relative py-28 text-white overflow-hidden">
+  <img src="https://i.ibb.co/q3qxRTR6/Whats-App-Image-2026-09-30-at-19-55-29-2.jpg"
+       class="absolute inset-0 w-full h-full object-cover" alt="Get involved">
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6">
+    <div class="max-w-3xl">
+      <nav class="text-sm text-white/70 mb-4">
+        <a href="index.html" class="hover:text-sun">Home</a>
+        <i class="fa-solid fa-chevron-right mx-2 text-xs"></i>
+        <span class="text-sun">Get Involved</span>
+      </nav>
+      <span class="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur px-4 py-1.5 rounded-full text-sm font-medium">
+        <i class="fa-solid fa-hands-holding-circle text-sun"></i> There's a place for you here
+      </span>
+      <h1 class="font-display font-extrabold text-4xl md:text-6xl leading-tight mt-6">
+        You don't have to be rich to change a life. <span class="text-sun">You just have to care.</span>
+      </h1>
+      <p class="mt-6 text-lg text-white/90 max-w-2xl leading-relaxed">
+        Not everyone can donate. But everyone can do <em>something</em>. Give your time, skills,
+        voice or network — and watch what happens in a child's life.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <a href="#ways" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-6 py-3 rounded-full shadow-lg transition">
+          <i class="fa-solid fa-compass mr-2"></i>Find Your Way
+        </a>
+        <a href="#volunteer" class="bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur font-semibold px-6 py-3 rounded-full transition">
+          Volunteer Now
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5 WAYS ============ -->
+<section id="ways" class="py-24 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Five Ways to Help</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Pick Your Path</h2>
+      <p class="text-gray-600 mt-4">Whether you have $5, five hours, or a five-figure corporate budget — there's a way to make a real difference.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- 1. Sponsor -->
+      <a href="#sponsor" class="way-card bg-white border-2 border-gray-100 rounded-3xl p-8 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-2xl mb-5">
+          <i class="fa-solid fa-child-reaching"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-hope">Sponsor a Child</h3>
+        <p class="text-gray-600 text-sm mt-3 leading-relaxed">$40/month covers everything a child needs. You'll receive their photo, updates and letters — a real relationship.</p>
+        <p class="text-sun-dark font-bold text-sm mt-5">Sponsor Now <i class="fa-solid fa-arrow-right ml-1"></i></p>
+      </a>
+
+      <!-- 2. Volunteer -->
+      <a href="#volunteer" class="way-card bg-white border-2 border-gray-100 rounded-3xl p-8 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-2xl mb-5">
+          <i class="fa-solid fa-hands-helping"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-hope">Volunteer</h3>
+        <p class="text-gray-600 text-sm mt-3 leading-relaxed">Give your skills — teaching, design, writing, web, translation — from anywhere in the world, or on-site in Uganda.</p>
+        <p class="text-sun-dark font-bold text-sm mt-5">Apply Now <i class="fa-solid fa-arrow-right ml-1"></i></p>
+      </a>
+
+      <!-- 3. Fundraise -->
+      <a href="#fundraise" class="way-card bg-white border-2 border-gray-100 rounded-3xl p-8 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-2xl mb-5">
+          <i class="fa-solid fa-bullhorn"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-hope">Fundraise</h3>
+        <p class="text-gray-600 text-sm mt-3 leading-relaxed">Birthdays, marathons, church drives, office challenges. We'll give you everything you need to hit your goal.</p>
+        <p class="text-sun-dark font-bold text-sm mt-5">Start a Fundraiser <i class="fa-solid fa-arrow-right ml-1"></i></p>
+      </a>
+
+      <!-- 4. Corporate -->
+      <a href="#corporate" class="way-card bg-white border-2 border-gray-100 rounded-3xl p-8 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-2xl mb-5">
+          <i class="fa-solid fa-building"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-hope">Corporate Partner</h3>
+        <p class="text-gray-600 text-sm mt-3 leading-relaxed">Align your brand with a real cause. CSR programs, employee giving, and matched-donation partnerships.</p>
+        <p class="text-sun-dark font-bold text-sm mt-5">Explore Partnership <i class="fa-solid fa-arrow-right ml-1"></i></p>
+      </a>
+
+      <!-- 5. In-Kind -->
+      <a href="#inkind" class="way-card bg-white border-2 border-gray-100 rounded-3xl p-8 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-2xl mb-5">
+          <i class="fa-solid fa-box-open"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-hope">In-Kind Giving</h3>
+        <p class="text-gray-600 text-sm mt-3 leading-relaxed">Books, clothes, school supplies, food, equipment — see our current wishlist and donate goods directly.</p>
+        <p class="text-sun-dark font-bold text-sm mt-5">See Wishlist <i class="fa-solid fa-arrow-right ml-1"></i></p>
+      </a>
+
+      <!-- 6. Pray / Share -->
+      <a href="#share" class="way-card bg-hope text-white rounded-3xl p-8 fade-up">
+        <div class="w-14 h-14 rounded-2xl bg-sun text-hope-dark flex items-center justify-center text-2xl mb-5">
+          <i class="fa-solid fa-share-nodes"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl">Share & Pray</h3>
+        <p class="text-white/80 text-sm mt-3 leading-relaxed">Free, powerful, and often overlooked. Share our mission on social media or keep the children in your prayers.</p>
+        <p class="text-sun font-bold text-sm mt-5">Spread the Word <i class="fa-solid fa-arrow-right ml-1"></i></p>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SPONSOR A CHILD ============ -->
+<section id="sponsor" class="py-24 bg-gray-50 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Deepest Impact</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Sponsor a Child</h2>
+      <p class="text-gray-600 mt-4">A monthly gift of $40 covers everything a child needs to thrive. You'll receive photos, letters and quarterly updates — so you always know how they're doing.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+
+      <!-- Tier 1 -->
+      <div class="tier-card bg-white rounded-3xl p-8 border-2 border-gray-100 text-center fade-up">
+        <div class="w-20 h-20 mx-auto rounded-full bg-hope/10 text-hope flex items-center justify-center text-3xl mb-5">
+          <i class="fa-solid fa-child"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-hope">One Child</h3>
+        <p class="text-gray-500 text-sm mt-2">Everything one child needs to thrive.</p>
+        <p class="font-display font-extrabold text-4xl text-hope mt-6">$40<span class="text-base font-medium text-gray-500">/mo</span></p>
+        <ul class="text-sm text-gray-600 mt-6 space-y-2 text-left">
+          <li><i class="fa-solid fa-check text-sun-dark mr-2"></i>School fees & uniforms</li>
+          <li><i class="fa-solid fa-check text-sun-dark mr-2"></i>3 meals a day & clean water</li>
+          <li><i class="fa-solid fa-check text-sun-dark mr-2"></i>Medical care & checkups</li>
+          <li><i class="fa-solid fa-check text-sun-dark mr-2"></i>Safe housing & counseling</li>
+          <li><i class="fa-solid fa-check text-sun-dark mr-2"></i>Photos, letters & updates</li>
+        </ul>
+        <a href="donate.html" class="block mt-7 bg-hope hover:bg-hope-light text-white font-bold py-3.5 rounded-full transition">Sponsor Now</a>
+      </div>
+
+      <!-- Tier 2 (featured) -->
+      <div class="tier-card bg-hope text-white rounded-3xl p-8 shadow-2xl md:scale-105 relative text-center fade-up">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-sun text-hope-dark text-xs font-bold px-4 py-1.5 rounded-full whitespace-nowrap">MOST POPULAR</span>
+        <div class="w-20 h-20 mx-auto rounded-full bg-sun text-hope-dark flex items-center justify-center text-3xl mb-5">
+          <i class="fa-solid fa-people-group"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl">A Small Group</h3>
+        <p class="text-white/70 text-sm mt-2">Support 5 children — a full classroom.</p>
+        <p class="font-display font-extrabold text-4xl text-sun mt-6">$200<span class="text-base font-medium text-white/70">/mo</span></p>
+        <ul class="text-sm text-white/90 mt-6 space-y-2 text-left">
+          <li><i class="fa-solid fa-check text-sun mr-2"></i>5 children fully sponsored</li>
+          <li><i class="fa-solid fa-check text-sun mr-2"></i>All program benefits</li>
+          <li><i class="fa-solid fa-check text-sun mr-2"></i>Group progress reports</li>
+          <li><i class="fa-solid fa-check text-sun mr-2"></i>Recognition on our site (optional)</li>
+          <li><i class="fa-solid fa-check text-sun mr-2"></i>Personal donor liaison</li>
+        </ul>
+        <a href="donate.html" class="block mt-7 bg-sun hover:bg-sun-dark text-hope-dark font-bold py-3.5 rounded-full transition">Sponsor Now</a>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="tier-card bg-white rounded-3xl p-8 border-2 border-gray-100 text-center fade-up">
+        <div class="w-20 h-20 mx-auto rounded-full bg-hope/10 text-hope flex items-center justify-center text-3xl mb-5">
+          <i class="fa-solid fa-school"></i>
+        </div>
+        <h3 class="font-display font-bold text-xl text-hope">Fund a Program</h3>
+        <p class="text-gray-500 text-sm mt-2">Underwrite a whole program area.</p>
+        <p class="font-display font-extrabold text-4xl text-hope mt-6">Custom</p>
+        <ul class="text-sm text-gray-600 mt-6 space-y-2 text-left">
+          <li><i class="fa-solid fa-check text-sun-dark mr-2"></i>Choose Education, Health or Shelter</li>
+          <li><i class="fa-solid fa-check text-sun-dark mr-2"></i>Named recognition</li>
+          <li><i class="fa-solid fa-check text-sun-dark mr-2"></i>Impact report every 6 months</li>
+          <li><i class="fa-solid fa-check text-sun-dark mr-2"></i>Site visit invitation</li>
+          <li><i class="fa-solid fa-check text-sun-dark mr-2"></i>Direct line to leadership</li>
+        </ul>
+        <a href="contact.html" class="block mt-7 bg-hope hover:bg-hope-light text-white font-bold py-3.5 rounded-full transition">Talk to Us</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ VOLUNTEER ============ -->
+<section id="volunteer" class="py-24 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Give Your Time & Skills</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Volunteer With Us</h2>
+      <p class="text-gray-600 mt-4">From anywhere in the world, or on-site in Uganda. Every skill is needed.</p>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-14 items-start">
+
+      <!-- Remote & on-site cards -->
+      <div class="space-y-6 fade-up">
+        <div class="bg-white border-2 border-gray-100 rounded-3xl p-8 way-card">
+          <div class="flex items-start gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-laptop-house"></i></div>
+            <div>
+              <h3 class="font-display font-bold text-xl text-hope">Remote Volunteering</h3>
+              <p class="text-gray-600 text-sm mt-2 leading-relaxed">Give as little as 2 hours a week from your own home. Perfect for professionals, students and retirees worldwide.</p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="text-xs bg-hope/10 text-hope font-semibold px-3 py-1 rounded-full">Grant writing</span>
+                <span class="text-xs bg-hope/10 text-hope font-semibold px-3 py-1 rounded-full">Social media</span>
+                <span class="text-xs bg-hope/10 text-hope font-semibold px-3 py-1 rounded-full">Web development</span>
+                <span class="text-xs bg-hope/10 text-hope font-semibold px-3 py-1 rounded-full">Design</span>
+                <span class="text-xs bg-hope/10 text-hope font-semibold px-3 py-1 rounded-full">Translation</span>
+                <span class="text-xs bg-hope/10 text-hope font-semibold px-3 py-1 rounded-full">Tutoring</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white border-2 border-gray-100 rounded-3xl p-8 way-card">
+          <div class="flex items-start gap-5">
+            <div class="w-14 h-14 rounded-2xl bg-hope text-sun flex items-center justify-center text-2xl shrink-0"><i class="fa-solid fa-plane-arrival"></i></div>
+            <div>
+              <h3 class="font-display font-bold text-xl text-hope">On-Site in Uganda</h3>
+              <p class="text-gray-600 text-sm mt-2 leading-relaxed">Come stay with us in Wakiso District. Teach, mentor, build, cook, play football — the children love visitors.</p>
+              <div class="flex flex-wrap gap-2 mt-4">
+                <span class="text-xs bg-sun/20 text-sun-dark font-semibold px-3 py-1 rounded-full">Teaching</span>
+                <span class="text-xs bg-sun/20 text-sun-dark font-semibold px-3 py-1 rounded-full">Sports coaching</span>
+                <span class="text-xs bg-sun/20 text-sun-dark font-semibold px-3 py-1 rounded-full">Construction</span>
+                <span class="text-xs bg-sun/20 text-sun-dark font-semibold px-3 py-1 rounded-full">Medical</span>
+                <span class="text-xs bg-sun/20 text-sun-dark font-semibold px-3 py-1 rounded-full">Photography</span>
+              </div>
+              <p class="text-xs text-gray-500 mt-4"><i class="fa-solid fa-info-circle mr-1"></i>Minimum stay: 1 week. We can help arrange accommodation and airport pickup.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-sun/10 border-2 border-sun/30 rounded-3xl p-6">
+          <p class="text-sun-dark font-bold text-sm uppercase tracking-widest mb-2"><i class="fa-solid fa-shield-halved mr-2"></i>Safeguarding Promise</p>
+          <p class="text-gray-700 text-sm">All volunteers complete safeguarding training and background checks before starting. This protects every child in our care.</p>
+        </div>
+      </div>
+
+      <!-- Volunteer form -->
+      <div class="bg-white rounded-3xl border border-gray-100 shadow-xl p-8 md:p-10 fade-up">
+        <h3 class="font-display font-extrabold text-2xl text-hope">Volunteer Application</h3>
+        <p class="text-gray-500 text-sm mt-2 mb-7">Tell us about yourself and how you'd like to help.</p>
+
+        <form id="volunteerForm" class="space-y-5" onsubmit="handleVolunteer(event)">
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="text-sm font-semibold text-gray-700 mb-2 block">Full Name *</label>
+              <input required type="text" placeholder="Your name" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition" />
+            </div>
+            <div>
+              <label class="text-sm font-semibold text-gray-700 mb-2 block">Email *</label>
+              <input required type="email" placeholder="you@email.com" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition" />
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-5">
+            <div>
+              <label class="text-sm font-semibold text-gray-700 mb-2 block">Country *</label>
+              <input required type="text" placeholder="e.g. Uganda, USA, UK" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition" />
+            </div>
+            <div>
+              <label class="text-sm font-semibold text-gray-700 mb-2 block">Phone (optional)</label>
+              <input type="tel" placeholder="+256 or international" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition" />
+            </div>
+          </div>
+
+          <div>
+            <label class="text-sm font-semibold text-gray-700 mb-2 block">Type of volunteering *</label>
+            <select required class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition bg-white">
+              <option value="">Choose one…</option>
+              <option>Remote — from my home</option>
+              <option>On-site — Uganda</option>
+              <option>Either / both</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="text-sm font-semibold text-gray-700 mb-2 block">Skills you can offer *</label>
+            <input required type="text" placeholder="e.g. Grant writing, teaching, design, medical…" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition" />
+          </div>
+
+          <div>
+            <label class="text-sm font-semibold text-gray-700 mb-2 block">Hours per week you can commit *</label>
+            <select required class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition bg-white">
+              <option value="">Choose one…</option>
+              <option>2 – 5 hours</option>
+              <option>5 – 10 hours</option>
+              <option>10 – 20 hours</option>
+              <option>Full time (20+ hours)</option>
+              <option>One-off / project based</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="text-sm font-semibold text-gray-700 mb-2 block">Why do you want to volunteer? *</label>
+            <textarea required rows="4" placeholder="Tell us a bit about your motivation…" class="field w-full px-4 py-3.5 rounded-xl border-2 border-gray-200 focus:outline-none transition resize-none"></textarea>
+          </div>
+
+          <label class="flex items-start gap-3 text-sm text-gray-600">
+            <input type="checkbox" class="mt-1 w-4 h-4 accent-hope" required />
+            <span>I agree to complete safeguarding training and a background check if selected.</span>
+          </label>
+
+          <button type="submit" class="w-full bg-hope hover:bg-hope-light text-white font-extrabold text-lg py-4 rounded-xl shadow-lg transition">
+            <i class="fa-solid fa-paper-plane mr-2"></i>Submit Application
+          </button>
+        </form>
+
+        <div id="volunteerSuccess" class="hidden text-center py-10">
+          <div class="w-20 h-20 mx-auto rounded-full bg-hope text-sun flex items-center justify-center text-4xl mb-6">
+            <i class="fa-solid fa-check"></i>
+          </div>
+          <h3 class="font-display font-extrabold text-2xl text-hope">Application received!</h3>
+          <p class="text-gray-600 mt-3">We'll review your application and get back to you within 5 business days.</p>
+          <button onclick="resetVolunteer()" class="mt-6 text-hope font-bold hover:text-hope-dark transition"><i class="fa-solid fa-rotate-left mr-2"></i>Send another application</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUNDRAISE ============ -->
+<section id="fundraise" class="py-24 bg-gray-50 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Multiply Your Impact</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Fundraise for Us</h2>
+      <p class="text-gray-600 mt-4">One person gives $100. One person rallies 100 friends to give $100 each — and funds a whole classroom.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+
+      <div class="way-card bg-white border-2 border-gray-100 rounded-2xl p-6 text-center fade-up">
+        <div class="w-12 h-12 mx-auto rounded-full bg-hope/10 text-hope flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-cake-candles"></i></div>
+        <h3 class="font-bold text-hope">Birthday Fundraiser</h3>
+        <p class="text-gray-600 text-xs mt-2">Ask friends to give to children instead of gifts.</p>
+      </div>
+
+      <div class="way-card bg-white border-2 border-gray-100 rounded-2xl p-6 text-center fade-up">
+        <div class="w-12 h-12 mx-auto rounded-full bg-hope/10 text-hope flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-person-running"></i></div>
+        <h3 class="font-bold text-hope">Marathon / Run</h3>
+        <p class="text-gray-600 text-xs mt-2">Turn your next race into a fundraiser for the children.</p>
+      </div>
+
+      <div class="way-card bg-white border-2 border-gray-100 rounded-2xl p-6 text-center fade-up">
+        <div class="w-12 h-12 mx-auto rounded-full bg-hope/10 text-hope flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-church"></i></div>
+        <h3 class="font-bold text-hope">Church / Community</h3>
+        <p class="text-gray-600 text-xs mt-2">Rally your congregation or community group around a goal.</p>
+      </div>
+
+      <div class="way-card bg-white border-2 border-gray-100 rounded-2xl p-6 text-center fade-up">
+        <div class="w-12 h-12 mx-auto rounded-full bg-hope/10 text-hope flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-briefcase"></i></div>
+        <h3 class="font-bold text-hope">Office Challenge</h3>
+        <p class="text-gray-600 text-xs mt-2">Team up with colleagues for a friendly giving competition.</p>
+      </div>
+
+    </div>
+
+    <div class="bg-hope text-white rounded-3xl p-8 md:p-12 fade-up grid md:grid-cols-3 gap-8 items-center">
+      <div class="md:col-span-2">
+        <h3 class="font-display font-extrabold text-2xl">Free Fundraiser Toolkit</h3>
+        <p class="text-white/80 mt-3">We'll send you a complete kit — images, story snippets, donation page template, social posts and email templates.</p>
+        <a href="contact.html" class="inline-flex items-center gap-2 mt-6 bg-sun hover:bg-sun-dark text-hope-dark font-bold px-6 py-3 rounded-full transition">
+          <i class="fa-solid fa-download mr-2"></i>Request Toolkit
+        </a>
+      </div>
+      <div class="text-center">
+        <div class="text-6xl text-sun"><i class="fa-solid fa-rocket"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CORPORATE ============ -->
+<section id="corporate" class="py-24 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">For Businesses</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3 leading-tight">
+        Partner with purpose.
+      </h2>
+      <p class="mt-6 text-gray-600 leading-relaxed">
+        More than ever, customers and employees care about the companies they support. Align
+        your brand with a cause that transforms lives — and see the impact in real, measurable terms.
+      </p>
+
+      <div class="mt-8 space-y-5">
+        <div class="flex items-start gap-4">
+          <span class="w-12 h-12 rounded-2xl bg-hope/10 text-hope flex items-center justify-center shrink-0"><i class="fa-solid fa-handshake-angle"></i></span>
+          <div><strong class="text-hope">Employee giving programs</strong><p class="text-gray-600 text-sm mt-1">Enable payroll giving and matched donations.</p></div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="w-12 h-12 rounded-2xl bg-hope/10 text-hope flex items-center justify-center shrink-0"><i class="fa-solid fa-bullseye"></i></span>
+          <div><strong class="text-hope">CSR initiatives</strong><p class="text-gray-600 text-sm mt-1">Sponsor a program — and see the impact first hand.</p></div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="w-12 h-12 rounded-2xl bg-hope/10 text-hope flex items-center justify-center shrink-0"><i class="fa-solid fa-award"></i></span>
+          <div><strong class="text-hope">Brand recognition</strong><p class="text-gray-600 text-sm mt-1">Logo on-site, in reports and on our website.</p></div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="w-12 h-12 rounded-2xl bg-hope/10 text-hope flex items-center justify-center shrink-0"><i class="fa-solid fa-chart-line"></i></span>
+          <div><strong class="text-hope">Impact reporting</strong><p class="text-gray-600 text-sm mt-1">Evidence and storytelling you can share with stakeholders.</p></div>
+        </div>
+      </div>
+
+      <a href="contact.html" class="inline-flex items-center gap-2 mt-9 bg-hope hover:bg-hope-light text-white font-bold px-6 py-3 rounded-full transition shadow-md">
+        <i class="fa-solid fa-briefcase mr-2"></i>Discuss a Partnership
+      </a>
+    </div>
+
+    <div class="fade-up grid grid-cols-2 gap-4">
+      <img src="https://i.ibb.co/Cs4nKPHq/Whats-App-Image-2026-09-30-at-19-55-29-1.jpg" class="rounded-2xl h-72 w-full object-cover shadow-lg" alt="">
+      <img src="https://i.ibb.co/xtTNN0yH/Whats-App-Image-2026-09-30-at-19-55-29.jpg" class="rounded-2xl h-72 w-full object-cover shadow-lg mt-8" alt="">
+      <img src="https://i.ibb.co/SDqWS34h/Whats-App-Image-2026-09-30-at-19-55-30.jpg" class="rounded-2xl h-64 w-full object-cover shadow-lg -mt-8" alt="">
+      <img src="https://i.ibb.co/q3qxRTR6/Whats-App-Image-2026-09-30-at-19-55-29-2.jpg" class="rounded-2xl h-64 w-full object-cover shadow-lg" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- ============ IN-KIND WISHLIST ============ -->
+<section id="inkind" class="py-24 bg-gray-50 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Give Goods</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">In-Kind Wishlist</h2>
+      <p class="text-gray-600 mt-4">These are the items our children need most right now. Contact us first to coordinate shipping or drop-off.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="w-12 h-12 rounded-xl bg-hope/10 text-hope flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-book"></i></div>
+        <h3 class="font-bold text-hope">Education</h3>
+        <ul class="text-sm text-gray-600 mt-3 space-y-2">
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Textbooks & storybooks</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Exercise books, pens & pencils</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>School bags & uniforms</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Laptops / tablets (used OK)</li>
+        </ul>
+      </div>
+
+      <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="w-12 h-12 rounded-xl bg-hope/10 text-hope flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-shirt"></i></div>
+        <h3 class="font-bold text-hope">Clothing & Essentials</h3>
+        <ul class="text-sm text-gray-600 mt-3 space-y-2">
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Children's clothes (ages 3–17)</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Shoes & sandals</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Blankets & bedsheets</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Mosquito nets</li>
+        </ul>
+      </div>
+
+      <div class="bg-white border-2 border-gray-100 rounded-2xl p-6 fade-up">
+        <div class="w-12 h-12 rounded-xl bg-hope/10 text-hope flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-basket-shopping"></i></div>
+        <h3 class="font-bold text-hope">Food & Health</h3>
+        <ul class="text-sm text-gray-600 mt-3 space-y-2">
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Rice, beans, maize flour</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Cooking oil & sugar</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Soap & hygiene supplies</li>
+          <li><i class="fa-solid fa-circle-check text-sun-dark mr-2"></i>Basic medicines & first-aid</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="text-center mt-12 fade-up">
+      <a href="contact.html" class="inline-flex items-center gap-2 bg-hope hover:bg-hope-light text-white font-bold px-8 py-4 rounded-full transition shadow-md">
+        <i class="fa-solid fa-box-open mr-2"></i>Arrange a Donation
+      </a>
+      <p class="text-xs text-gray-500 mt-4">Email info@hopefortomorrow.org or call +256 778 655 726 before shipping goods.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHARE & PRAY ============ -->
+<section id="share" class="py-24 scroll-mt-24">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Free — But Powerful</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Share the Mission</h2>
+      <p class="text-gray-600 mt-4">You might not be able to give today — but sharing our story costs nothing and can change everything.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="bg-white border-2 border-gray-100 rounded-3xl p-8 text-center fade-up">
+        <div class="w-14 h-14 mx-auto rounded-full bg-hope text-sun flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-share-nodes"></i></div>
+        <h3 class="font-display font-bold text-xl text-hope">Share on Social Media</h3>
+        <p class="text-gray-600 text-sm mt-3">Post our story on your socials — it takes 10 seconds and can reach thousands.</p>
+        <div class="flex justify-center gap-3 mt-6">
+          <a href="#" class="w-11 h-11 rounded-full bg-hope/10 text-hope hover:bg-hope hover:text-sun flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="w-11 h-11 rounded-full bg-hope/10 text-hope hover:bg-hope hover:text-sun flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#" class="w-11 h-11 rounded-full bg-hope/10 text-hope hover:bg-hope hover:text-sun flex items-center justify-center transition"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="w-11 h-11 rounded-full bg-hope/10 text-hope hover:bg-hope hover:text-sun flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="bg-hope text-white rounded-3xl p-8 text-center fade-up">
+        <div class="w-14 h-14 mx-auto rounded-full bg-sun text-hope-dark flex items-center justify-center text-2xl mb-4"><i class="fa-solid fa-hands-praying"></i></div>
+        <h3 class="font-display font-bold text-xl">Keep Them in Your Prayers</h3>
+        <p class="text-white/80 text-sm mt-3">We believe in the power of prayer. If you pray, please remember our children, staff and their families.</p>
+        <p class="text-sun text-sm font-bold mt-6 italic">"Faith, hope and love — and the greatest of these is love."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="py-24 bg-gray-50">
+  <div class="max-w-4xl mx-auto px-6">
+    <div class="text-center mb-14 fade-up">
+      <span class="text-sun font-bold uppercase tracking-widest text-sm">Before You Apply</span>
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-hope mt-3">Common Questions</h2>
+    </div>
+
+    <div class="space-y-4">
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Do I need experience to volunteer?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Not at all. We have roles for every skill level — from sorting donations to teaching to strategic planning. What matters most is your willingness to show up consistently and treat the children with respect.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Can I meet the child I sponsor?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes — many sponsors visit us in Uganda each year. We arrange visits carefully to protect the child's wellbeing, and we can also facilitate video calls and letter exchanges for remote sponsors.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Do you help with travel and accommodation for on-site volunteers?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">We can advise on affordable accommodation near our home and arrange airport pickup from Entebbe. We do not cover flights or visas, but we'll help you plan a smooth visit.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          What is the minimum commitment for volunteers?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">For on-site volunteering: one week minimum. For remote: we ask for at least 2 hours per week for a minimum of 3 months so that we can rely on you and plan around your support.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Do you do background checks on volunteers?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Yes — mandatory for anyone working directly with children. This is non-negotiable and part of our safeguarding commitment to the children in our care.</div>
+      </div>
+
+      <div class="faq-item bg-white border-2 border-gray-100 rounded-2xl overflow-hidden">
+        <button class="faq-toggle w-full flex justify-between items-center p-6 text-left font-bold text-hope">
+          Can my company sponsor a specific program?
+          <i class="faq-icon fa-solid fa-plus text-sun transition-transform"></i>
+        </button>
+        <div class="faq-answer px-6 text-gray-600 text-sm">Absolutely. Many of our corporate partners choose to fund a specific program (Education, Nutrition, Shelter or Mentorship), often naming it after their company. Contact us to discuss a tailored partnership.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="relative py-24 text-white overflow-hidden">
+  <div class="absolute inset-0 bg-hope-dark"></div>
+  <div class="absolute inset-0 opacity-10" style="background-image:radial-gradient(circle at 20% 20%, #F4B942 0, transparent 40%), radial-gradient(circle at 80% 80%, #F4B942 0, transparent 40%);"></div>
+
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+    <h2 class="font-display font-extrabold text-3xl md:text-4xl">Your move.</h2>
+    <p class="text-white/80 mt-4">Whatever you can give — money, time, skills, prayer — a child's life will change because of it.</p>
+    <div class="mt-9 flex flex-wrap justify-center gap-4">
+      <a href="donate.html" class="bg-sun hover:bg-sun-dark text-hope-dark font-bold px-8 py-4 rounded-full shadow-lg transition">
+        <i class="fa-solid fa-heart mr-2"></i>Donate Now
+      </a>
+      <a href="contact.html" class="bg-transparent border-2 border-white/60 hover:bg-white/10 font-bold px-8 py-4 rounded-full transition">
+        Talk to Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-hope-dark text-white/80">
+  <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
+    <div>
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-11 h-11 rounded-full bg-hope flex items-center justify-center text-sun text-xl"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div>
+          <p class="font-display font-extrabold text-white text-lg leading-none">Hope for Tomorrow</p>
+          <p class="text-[11px] uppercase tracking-widest text-white/60">Foundation · Uganda</p>
+        </div>
+      </div>
+      <p class="text-sm leading-relaxed">Empowering Uganda's most vulnerable children with education, nutrition, health and hope.</p>
+      <div class="flex gap-3 mt-5">
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sun hover:text-hope-dark flex items-center justify-center transition"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Quick Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="about.html" class="hover:text-sun transition">About Us</a></li>
+        <li><a href="programs.html" class="hover:text-sun transition">Our Programs</a></li>
+        <li><a href="stories.html" class="hover:text-sun transition">Children's Stories</a></li>
+        <li><a href="transparency.html" class="hover:text-sun transition">Transparency</a></li>
+        <li><a href="get-involved.html" class="hover:text-sun transition">Get Involved</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Get Involved</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#sponsor" class="hover:text-sun transition">Sponsor a Child</a></li>
+        <li><a href="#volunteer" class="hover:text-sun transition">Volunteer</a></li>
+        <li><a href="#fundraise" class="hover:text-sun transition">Fundraise</a></li>
+        <li><a href="#corporate" class="hover:text-sun transition">Corporate Partnership</a></li>
+        <li><a href="#inkind" class="hover:text-sun transition">In-Kind Donations</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="text-white font-bold mb-4">Contact</h4>
+      <ul class="space-y-3 text-sm">
+        <li><i class="fa-solid fa-phone mr-2 text-sun"></i>+256 778 655 726</li>
+        <li><i class="fa-solid fa-location-dot mr-2 text-sun"></i>Wakiso District, Uganda</li>
+        <li><i class="fa-solid fa-envelope mr-2 text-sun"></i>info@hopefortomorrow.org</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white/60">
+      © <span id="year"></span> Hope for Tomorrow Foundation. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="toTop" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-hope text-white shadow-lg hidden items-center justify-center hover:bg-hope-light transition z-40">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<script>
+  document.getElementById('menuBtn').addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Fade-up
+  const fadeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+
+  // FAQ
+  document.querySelectorAll('.faq-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) { toTop.classList.remove('hidden'); toTop.classList.add('flex'); }
+    else { toTop.classList.add('hidden'); toTop.classList.remove('flex'); }
+  });
+  toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Volunteer form
+  function handleVolunteer(e) {
+    e.preventDefault();
+    document.getElementById('volunteerForm').classList.add('hidden');
+    document.getElementById('volunteerSuccess').classList.remove('hidden');
+    document.getElementById('volunteerSuccess').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  function resetVolunteer() {
+    document.getElementById('volunteerForm').reset();
+    document.getElementById('volunteerForm').classList.remove('hidden');
+    document.getElementById('volunteerSuccess').classList.add('hidden');
+  }
+</script>
+
+</body>
+</html>
